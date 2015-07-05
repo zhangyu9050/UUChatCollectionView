@@ -18,6 +18,8 @@
 #import "UUChatCollectionViewCell.h"
 #import "UUChatCollectionViewCellIncoming.h"
 
+//Layout
+#import "UUChatCollectionViewFlowLayout.h"
 
 //Controller
 #import "UUChatViewController.h"

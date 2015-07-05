@@ -113,7 +113,7 @@
         
         //        [self createDataSoure];
         
-        UICollectionViewFlowLayout *flowLayout= [[UICollectionViewFlowLayout alloc] init];
+        UUChatCollectionViewFlowLayout *flowLayout= [[UUChatCollectionViewFlowLayout alloc] init];
         
         _collectionView = [[UUChatCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
         _collectionView.delegate = self;
