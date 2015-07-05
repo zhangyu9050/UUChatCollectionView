@@ -55,14 +55,14 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    return 10;//_messageArray.count;
+    return _messageArray.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     UUChatCollectionViewCellIncoming *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[UUChatCollectionViewCell cellReuseIdentifier] forIndexPath:indexPath];
     
-    //    [cell setContentWithObject:_dataArray[indexPath.row]];
+    [cell setContentWithObject:_messageArray[indexPath.row]];
     
     [cell setNeedsUpdateConstraints];
     [cell updateConstraintsIfNeeded];
@@ -103,6 +103,20 @@
 
 #pragma mark - Private Methods
 
+- (void)createDataSoure{
+
+    for (int i = 0; i < 20; i++) {
+        
+        UUChatMessage *message = [[UUChatMessage alloc] init];
+        message.timestamp = @"20150705";
+        message.userName = @"zhangyu";
+        message.userAvatar = @"userAvatarIncoming";
+        message.message = @"However, when we rotate from portrait to landscape we get the following complaint";
+        
+        [_messageArray addObject:message];
+    }
+}
+
 #pragma mark - Getters And Setters
 
 - (UUChatCollectionView *)getCollectionView{
@@ -111,7 +125,7 @@
         
         _messageArray = [NSMutableArray array];
         
-        //        [self createDataSoure];
+        [self createDataSoure];
         
         UUChatCollectionViewFlowLayout *flowLayout= [[UUChatCollectionViewFlowLayout alloc] init];
         

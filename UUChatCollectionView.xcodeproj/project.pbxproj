@@ -24,6 +24,7 @@
 		2A9DAED21B490060007C359B /* UUChatCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAED11B490060007C359B /* UUChatCollectionViewCell.m */; };
 		2A9DAED51B4900BC007C359B /* UUChatCollectionViewCellIncoming.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAED41B4900BC007C359B /* UUChatCollectionViewCellIncoming.m */; };
 		2A9DAED81B49056D007C359B /* UUChatCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAED71B49056D007C359B /* UUChatCollectionViewFlowLayout.m */; };
+		2A9DAEDB1B490785007C359B /* UUChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAEDA1B490785007C359B /* UUChatMessage.m */; };
 		F51D47724EAE6F20AB6C1805 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2779EB7D723B5C8BE0C93609 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,8 @@
 		2A9DAED41B4900BC007C359B /* UUChatCollectionViewCellIncoming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChatCollectionViewCellIncoming.m; sourceTree = "<group>"; };
 		2A9DAED61B49056D007C359B /* UUChatCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChatCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		2A9DAED71B49056D007C359B /* UUChatCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChatCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		2A9DAED91B490785007C359B /* UUChatMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChatMessage.h; sourceTree = "<group>"; };
+		2A9DAEDA1B490785007C359B /* UUChatMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChatMessage.m; sourceTree = "<group>"; };
 		AC4C885438FFEFF1889DD338 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,6 +201,8 @@
 		2A9DAEB91B48FE61007C359B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2A9DAED91B490785007C359B /* UUChatMessage.h */,
+				2A9DAEDA1B490785007C359B /* UUChatMessage.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 				2A9DAED21B490060007C359B /* UUChatCollectionViewCell.m in Sources */,
 				2A9DAE981B48FD2F007C359B /* ViewController.m in Sources */,
 				2A9DAECF1B490047007C359B /* UUChatCollectionView.m in Sources */,
+				2A9DAEDB1B490785007C359B /* UUChatMessage.m in Sources */,
 				2A9DAED81B49056D007C359B /* UUChatCollectionViewFlowLayout.m in Sources */,
 				2A9DAE951B48FD2F007C359B /* AppDelegate.m in Sources */,
 				2A9DAECC1B48FF87007C359B /* UUChatViewController.m in Sources */,

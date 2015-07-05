@@ -38,11 +38,11 @@
     
     [super configUI];
     
-    self.lblTimestamp.text = @"2015-0704";
-    self.lblUserName.text = @"zhangyu";
-    self.imgUserAvatar.image = [UIImage imageNamed:@"userAvatarIncoming"];
-    
-    self.lblMessage.text = @"However, when we rotate from portrait to landscape we get the following complaint";
+//    self.lblTimestamp.text = @"2015-0704";
+//    self.lblUserName.text = @"zhangyu";
+//    self.imgUserAvatar.image = [UIImage imageNamed:@"userAvatarIncoming"];
+//    
+//    self.lblMessage.text = @"However, when we rotate from portrait to landscape we get the following complaint";
     
     
     UIImage* img=[UIImage imageNamed:@"bg_bubble_nor"];//原图
@@ -105,14 +105,14 @@
 
 #pragma mark - Public Methods
 
-//- (void)setContentWithObject:(CBMessageModel *)obj{
-//
-//    self.lblTimestamp.text = obj.timestamp;
-//    self.lblUserName.text = obj.userName;
-//    self.imgUserAvatar.image = [UIImage imageNamed:obj.userAvatar];
-//
-//    self.lblMessage.text = obj.message;
-//}
+- (void)setContentWithObject:(UUChatMessage *)obj{
+
+    self.lblTimestamp.text = obj.timestamp;
+    self.lblUserName.text = obj.userName;
+    self.imgUserAvatar.image = [UIImage imageNamed:obj.userAvatar];
+
+    self.lblMessage.text = obj.message;
+}
 
 #pragma mark - Private Methods
 

@@ -8,6 +8,9 @@
 
 #import "UUChatCollectionViewCell.h"
 
+@class UUChatMessage;
 @interface UUChatCollectionViewCellIncoming : UUChatCollectionViewCell
+
+- (void)setContentWithObject:(UUChatMessage *)obj;
 
 @end

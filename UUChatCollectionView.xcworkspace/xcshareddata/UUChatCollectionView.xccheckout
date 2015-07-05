@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>13BA64C3-CF2F-426B-9C6C-5CA702E3E6A2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>UUChatCollectionView</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2F95BBCB694AACAE422913E8DB57DAA38140E2D3</key>
+		<string>https://github.com/zhangyu9050/UUChatCollectionView.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>UUChatCollectionView.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2F95BBCB694AACAE422913E8DB57DAA38140E2D3</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/zhangyu9050/UUChatCollectionView.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2F95BBCB694AACAE422913E8DB57DAA38140E2D3</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2F95BBCB694AACAE422913E8DB57DAA38140E2D3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>UUChatCollectionView</string>
+		</dict>
+	</array>
+</dict>
+</plist>

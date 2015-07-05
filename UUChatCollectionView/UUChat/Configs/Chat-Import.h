@@ -21,6 +21,9 @@
 //Layout
 #import "UUChatCollectionViewFlowLayout.h"
 
+//Model
+#import "UUChatMessage.h"
+
 //Controller
 #import "UUChatViewController.h"
 
