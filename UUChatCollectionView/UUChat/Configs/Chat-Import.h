@@ -17,6 +17,7 @@
 #import "UUChatCollectionView.h"
 #import "UUChatCollectionViewCell.h"
 #import "UUChatCollectionViewCellIncoming.h"
+#import "UUChatCollectionViewCellOutgoing.h"
 
 //Layout
 #import "UUChatCollectionViewFlowLayout.h"

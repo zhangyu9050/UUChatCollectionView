@@ -10,6 +10,7 @@
 
 #define kUserAvatarSize CGSizeMake(40,40)
 
+@class UUChatMessage;
 @interface UUChatCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong, getter = getImageUserAvatar) UIImageView *imgUserAvatar;
@@ -21,6 +22,7 @@
 @property (nonatomic, assign) BOOL didSetupConstraints;
 
 - (void)configUI;
+- (void)setContentWithObject:(UUChatMessage *)obj;
 
 + (NSString *)cellReuseIdentifier;
 + (CGFloat)maxBubboleWidth;

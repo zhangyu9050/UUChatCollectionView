@@ -26,6 +26,7 @@
 		2A9DAED81B49056D007C359B /* UUChatCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAED71B49056D007C359B /* UUChatCollectionViewFlowLayout.m */; };
 		2A9DAEDB1B490785007C359B /* UUChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAEDA1B490785007C359B /* UUChatMessage.m */; };
 		2A9DAEDE1B4909ED007C359B /* UUChatCollectionViewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAEDD1B4909ED007C359B /* UUChatCollectionViewLayoutAttributes.m */; };
+		2A9DAEE11B49181D007C359B /* UUChatCollectionViewCellOutgoing.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAEE01B49181D007C359B /* UUChatCollectionViewCellOutgoing.m */; };
 		F51D47724EAE6F20AB6C1805 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2779EB7D723B5C8BE0C93609 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,8 @@
 		2A9DAEDA1B490785007C359B /* UUChatMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChatMessage.m; sourceTree = "<group>"; };
 		2A9DAEDC1B4909ED007C359B /* UUChatCollectionViewLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChatCollectionViewLayoutAttributes.h; sourceTree = "<group>"; };
 		2A9DAEDD1B4909ED007C359B /* UUChatCollectionViewLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChatCollectionViewLayoutAttributes.m; sourceTree = "<group>"; };
+		2A9DAEDF1B49181D007C359B /* UUChatCollectionViewCellOutgoing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChatCollectionViewCellOutgoing.h; sourceTree = "<group>"; };
+		2A9DAEE01B49181D007C359B /* UUChatCollectionViewCellOutgoing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChatCollectionViewCellOutgoing.m; sourceTree = "<group>"; };
 		AC4C885438FFEFF1889DD338 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -241,6 +244,8 @@
 				2A9DAED11B490060007C359B /* UUChatCollectionViewCell.m */,
 				2A9DAED31B4900BC007C359B /* UUChatCollectionViewCellIncoming.h */,
 				2A9DAED41B4900BC007C359B /* UUChatCollectionViewCellIncoming.m */,
+				2A9DAEDF1B49181D007C359B /* UUChatCollectionViewCellOutgoing.h */,
+				2A9DAEE01B49181D007C359B /* UUChatCollectionViewCellOutgoing.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -419,6 +424,7 @@
 				2A9DAE951B48FD2F007C359B /* AppDelegate.m in Sources */,
 				2A9DAECC1B48FF87007C359B /* UUChatViewController.m in Sources */,
 				2A9DAE921B48FD2F007C359B /* main.m in Sources */,
+				2A9DAEE11B49181D007C359B /* UUChatCollectionViewCellOutgoing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

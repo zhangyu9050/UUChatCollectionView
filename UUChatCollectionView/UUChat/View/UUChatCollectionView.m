@@ -30,7 +30,10 @@
     self.alwaysBounceVertical = YES;
     self.bounces              = YES;
     
-    [self registerClass:[UUChatCollectionViewCellIncoming class] forCellWithReuseIdentifier:[UUChatCollectionViewCell cellReuseIdentifier]];
+    [self registerClass:[UUChatCollectionViewCellIncoming class] forCellWithReuseIdentifier:[UUChatCollectionViewCellIncoming cellReuseIdentifier]];
+    [self registerClass:[UUChatCollectionViewCellOutgoing class] forCellWithReuseIdentifier:[UUChatCollectionViewCellOutgoing cellReuseIdentifier]];
+    
+    
     
 }
 
