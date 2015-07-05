@@ -126,7 +126,7 @@
 
     CGSize finalSize = CGSizeZero;
     
-    CGRect stringRect = [message.message boundingRectWithSize:CGSizeMake(ScreenWidth -110, CGFLOAT_MAX)
+    CGRect stringRect = [message.message boundingRectWithSize:CGSizeMake(ScreenWidth -140, CGFLOAT_MAX)
                                                          options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
                                                       attributes:@{ NSFontAttributeName : _messageFont }
                                                          context:nil];
@@ -158,7 +158,7 @@
     
 //    CGSize messageBubbleSize = [self messageBubbleSizeForItemAtIndexPath:indexPath];
     
-    layoutAttributes.messageBubbleMaxWidth = ScreenWidth -110;
+    layoutAttributes.messageBubbleMaxWidth = ScreenWidth -140;
     
     layoutAttributes.messageBubbleInsets = UIEdgeInsetsMake(5, 0, 0, 0);
     

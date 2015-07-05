@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class UUChatCollectionViewFlowLayout;
 @interface UUChatCollectionView : UICollectionView
+
+@property (nonatomic, strong) UUChatCollectionViewFlowLayout *collectionViewLayout;
 
 @end

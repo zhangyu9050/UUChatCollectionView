@@ -63,7 +63,7 @@
 
 + (CGFloat)maxBubboleWidth{
     
-    return ScreenWidth - 110;
+    return ScreenWidth - 140;
 }
 
 #pragma mark - Private Methods

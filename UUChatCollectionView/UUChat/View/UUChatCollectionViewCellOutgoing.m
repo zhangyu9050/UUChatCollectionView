@@ -45,6 +45,7 @@
     //    self.lblMessage.text = @"However, when we rotate from portrait to landscape we get the following complaint";
     
     self.lblUserName.textAlignment = NSTextAlignmentRight;
+//    self.lblMessage.textAlignment = NSTextAlignmentRight;
     
     UIImage* img=[UIImage imageNamed:@"bg_bubble_m_nor"];//原图
     UIEdgeInsets edge=UIEdgeInsetsMake(15, 10, 15 ,15);
@@ -89,7 +90,7 @@
         
         [self.lblMessage mas_makeConstraints:^(MASConstraintMaker *make) {
             
-            make.edges.equalTo(self.imgBubble).with.insets(UIEdgeInsetsMake(10, 20, 10, 15));
+            make.edges.equalTo(self.imgBubble).with.insets(UIEdgeInsetsMake(10, 15, 10, 20));
         }];
         
         self.didSetupConstraints = YES;
