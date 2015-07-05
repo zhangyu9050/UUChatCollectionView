@@ -20,6 +20,7 @@
 
 //Layout
 #import "UUChatCollectionViewFlowLayout.h"
+#import "UUChatCollectionViewLayoutAttributes.h"
 
 //Model
 #import "UUChatMessage.h"

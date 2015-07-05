@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class UUChatMessage;
 @interface UUChatCollectionViewFlowLayout : UICollectionViewFlowLayout
+
+- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath message:(UUChatMessage *)message;
 
 @end

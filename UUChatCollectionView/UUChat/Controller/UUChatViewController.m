@@ -72,9 +72,9 @@
 
 #pragma mark - UICollectionView Delegate FlowLayout
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UUChatCollectionViewFlowLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    return CGSizeMake(ScreenWidth, 170);
+    return [collectionViewLayout sizeForItemAtIndexPath:indexPath message:_messageArray[indexPath.row]];
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView
