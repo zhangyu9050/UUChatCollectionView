@@ -30,6 +30,7 @@
 
 //Model
 #import "UUChatMessage.h"
+#import "UUChatCollectionViewDataSource.h"
 
 //Controller
 #import "UUChatViewController.h"

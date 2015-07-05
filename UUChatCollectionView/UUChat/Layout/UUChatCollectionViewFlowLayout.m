@@ -23,7 +23,6 @@
     
     if (self = [super init]) {
         
-        //        _weakSuper = weakSuper;
         [self configUI];
     }
     
@@ -149,24 +148,27 @@
     }];
 }
 
-- (CGSize )messageBubbleSizeForItemAtIndexPath:(NSIndexPath *)indexPath message:(UUChatMessage *)message{
+- (CGSize )messageBubbleSizeForItemAtIndexPath:(NSIndexPath *)indexPath{
 
+    
+    UUChatMessage *messageItem = [self.collectionView.dataSource collectionView:self.collectionView messageDataForItemAtIndexPath:indexPath];
+    
     CGSize finalSize = CGSizeZero;
     
-    CGRect stringRect = [message.message boundingRectWithSize:CGSizeMake(_messageBubbleMaxWidth, CGFLOAT_MAX)
+    CGRect stringRect = [messageItem.message boundingRectWithSize:CGSizeMake(_messageBubbleMaxWidth, CGFLOAT_MAX)
                                                          options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
                                                       attributes:@{ NSFontAttributeName : _messageFont }
                                                          context:nil];
     finalSize.height += 20;
-    finalSize.height += 25;
+    finalSize.height += 20;
     finalSize.height += stringRect.size.height;
     
     return finalSize;
 }
 
-- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath message:(UUChatMessage *)message{
+- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
 
-    CGSize messageBubbleSize = [self messageBubbleSizeForItemAtIndexPath:indexPath message:message];
+    CGSize messageBubbleSize = [self messageBubbleSizeForItemAtIndexPath:indexPath];
     
     UUChatCollectionViewLayoutAttributes *attributes = (UUChatCollectionViewLayoutAttributes *)[self layoutAttributesForItemAtIndexPath:indexPath];
     
@@ -176,7 +178,8 @@
     finalHeight += attributes.messageBubbleInsets.top;
     finalHeight += attributes.messageFrameInsets.top + attributes.messageFrameInsets.bottom;
     
-    return CGSizeMake(ScreenWidth, ceilf(finalHeight));
+    CGFloat itemWidth = ScreenWidth -self.sectionInset.left - self.sectionInset.right;
+    return CGSizeMake(itemWidth, ceilf(finalHeight));
 }
 
 - (void)configureMessageCellLayoutAttributes:(UUChatCollectionViewLayoutAttributes *)layoutAttributes{

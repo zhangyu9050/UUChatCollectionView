@@ -103,8 +103,8 @@
         
         _imgBubble = [[UIImageView alloc] init];
         
-        //        _imgBubble.layer.borderWidth = 2;
-        //        _imgBubble.layer.borderColor = [UIColor redColor].CGColor;
+//                _imgBubble.layer.borderWidth = 2;
+//                _imgBubble.layer.borderColor = [UIColor redColor].CGColor;
     }
     
     return _imgBubble;
@@ -142,8 +142,8 @@
          _lblMessage.textColor = COLOR_WITH_RGB(63,63,63,1);
         _lblMessage.preferredMaxLayoutWidth = [UUChatCollectionViewCell maxBubboleWidth];
         
-        //        _lblMessage.layer.borderWidth = 2;
-        //        _lblMessage.layer.borderColor = [UIColor greenColor].CGColor;
+//                _lblMessage.layer.borderWidth = 2;
+//                _lblMessage.layer.borderColor = [UIColor greenColor].CGColor;
         
     }
     

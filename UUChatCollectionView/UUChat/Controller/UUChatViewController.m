@@ -10,7 +10,7 @@
 #import "Chat-Import.h"
 #import "Chat-Macros.h"
 
-@interface UUChatViewController() < UICollectionViewDataSource,
+@interface UUChatViewController() < UUChatCollectionViewDataSource,
                                     UICollectionViewDelegate,
                                     UICollectionViewDelegateFlowLayout >
 
@@ -28,10 +28,12 @@
 
     
     [self subscribeToKeyboard];
+    [self.view layoutIfNeeded];
+    [self.collectionView.collectionViewLayout invalidateLayout];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self scrollToBottomAnimated:NO];
-//        [self.collectionView.collectionViewLayout invalidateLayoutWithContext:[UUChatCollectionViewFlowLayoutInvalidationContext context]];
+        [self.collectionView.collectionViewLayout invalidateLayoutWithContext:[UUChatCollectionViewFlowLayoutInvalidationContext context]];
     });
 
 }
@@ -91,6 +93,12 @@
 
 #pragma mark - CollectionView DataSource
 
+- (UUChatMessage *)collectionView:(UUChatCollectionView *)collectionView messageDataForItemAtIndexPath:(NSIndexPath *)indexPath{
+
+    return _messageArray[indexPath.row];
+}
+
+
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
     return _messageArray.count;
@@ -99,16 +107,14 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     UUChatCollectionViewCell *cell;
-    if (indexPath.row % 2 == 0) {
-        
+//    if (indexPath.row % 2 == 0) {
+    
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:[UUChatCollectionViewCellOutgoing cellReuseIdentifier] forIndexPath:indexPath];
-    }else{
-    
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:[UUChatCollectionViewCellIncoming cellReuseIdentifier] forIndexPath:indexPath];
-    }
+//    }else{
 //    
-//    UUChatCollectionViewCellIncoming *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[UUChatCollectionViewCell cellReuseIdentifier] forIndexPath:indexPath];
-    
+//        cell = [collectionView dequeueReusableCellWithReuseIdentifier:[UUChatCollectionViewCellIncoming cellReuseIdentifier] forIndexPath:indexPath];
+//    }
+
     [cell setContentWithObject:_messageArray[indexPath.row]];
     
     [cell setNeedsUpdateConstraints];
@@ -121,8 +127,8 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UUChatCollectionViewFlowLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-//    return CGSizeMake(ScreenWidth, 200);
-    return [collectionViewLayout sizeForItemAtIndexPath:indexPath message:_messageArray[indexPath.row]];
+//    return CGSizeMake(ScreenWidth, 100);
+    return [collectionViewLayout sizeForItemAtIndexPath:indexPath];
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView
@@ -227,7 +233,7 @@
 
 - (void)createDataSoure{
 
-    for (int i = 0; i < 13; i++) {
+    for (int i = 0; i < 2; i++) {
         
         UUChatMessage *message = [[UUChatMessage alloc] init];
         message.timestamp = [self sendTimeString];

@@ -107,6 +107,7 @@
 		2A9DAEFA1B495C27007C359B /* UUChatCollectionViewFlowLayoutInvalidationContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChatCollectionViewFlowLayoutInvalidationContext.m; sourceTree = "<group>"; };
 		2A9DAF021B49879D007C359B /* UUChatTimeStampView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChatTimeStampView.h; sourceTree = "<group>"; };
 		2A9DAF031B49879D007C359B /* UUChatTimeStampView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChatTimeStampView.m; sourceTree = "<group>"; };
+		2A9DAF051B49955E007C359B /* UUChatCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChatCollectionViewDataSource.h; sourceTree = "<group>"; };
 		AC4C885438FFEFF1889DD338 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -242,6 +243,7 @@
 			children = (
 				2A9DAED91B490785007C359B /* UUChatMessage.h */,
 				2A9DAEDA1B490785007C359B /* UUChatMessage.m */,
+				2A9DAF051B49955E007C359B /* UUChatCollectionViewDataSource.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";

@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UUChatCollectionViewDataSource.h"
 
 @class UUChatCollectionViewFlowLayout;
 @interface UUChatCollectionView : UICollectionView
 
 @property (nonatomic, strong) UUChatCollectionViewFlowLayout *collectionViewLayout;
+
+@property (weak, nonatomic) id<UUChatCollectionViewDataSource> dataSource;
 
 @end

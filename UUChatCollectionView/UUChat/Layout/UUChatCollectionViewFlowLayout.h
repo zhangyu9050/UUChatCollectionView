@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class UUChatMessage;
+@class UUChatCollectionView;
 @interface UUChatCollectionViewFlowLayout : UICollectionViewFlowLayout
 
-- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath message:(UUChatMessage *)message;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wincompatible-property-type"
+@property (readonly, nonatomic) UUChatCollectionView *collectionView;
+#pragma clang diagnostic pop
+
+- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
