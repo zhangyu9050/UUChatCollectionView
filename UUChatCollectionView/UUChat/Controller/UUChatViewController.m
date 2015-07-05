@@ -64,10 +64,10 @@
     [self.view addSubview:self.collectionView];
     [self.view addSubview:self.toolbarView];
     
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"1"
-//                                                                              style:UIBarButtonItemStyleBordered
-//                                                                             target:self
-//                                                                             action:@selector(receiveMessagePressed:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Message"
+                                                                              style:UIBarButtonItemStyleBordered
+                                                                             target:self
+                                                                             action:@selector(receiveMessagePressed:)];
 
 
 }
@@ -147,9 +147,29 @@
 
 #pragma mark - Event Response
 
+- (void)receiveMessagePressed:(id)sender{
+
+    UUChatMessage *model = [[UUChatMessage alloc] init];
+    model.timestamp = [self sendTimeString];
+    model.userName = @"zhang";
+    model.userAvatar = @"userAvatarIncoming";
+    model.message = @"IPv4地址即将告罄 美国已摇号限购 仅非洲能按需申请";
+    
+    [_messageArray addObject:model];
+    
+    [_collectionView reloadData];
+}
+
 #pragma mark - Public Methods
 
 #pragma mark - Private Methods
+
+- (NSString *)sendTimeString{
+
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    return [dateFormatter stringFromDate:[NSDate date]];
+}
 
 - (void)scrollToBottomAnimated:(BOOL)animated
 {
@@ -207,10 +227,10 @@
 
 - (void)createDataSoure{
 
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 13; i++) {
         
         UUChatMessage *message = [[UUChatMessage alloc] init];
-        message.timestamp = @"2015-09-09";
+        message.timestamp = [self sendTimeString];
         message.userName = @"zhangyu";
         message.userAvatar = @"userAvatarIncoming";
         
