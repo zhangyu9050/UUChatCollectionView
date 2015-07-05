@@ -1,0 +1,612 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2A9DAE921B48FD2F007C359B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAE911B48FD2F007C359B /* main.m */; };
+		2A9DAE951B48FD2F007C359B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAE941B48FD2F007C359B /* AppDelegate.m */; };
+		2A9DAE981B48FD2F007C359B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAE971B48FD2F007C359B /* ViewController.m */; };
+		2A9DAE9B1B48FD2F007C359B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DAE991B48FD2F007C359B /* Main.storyboard */; };
+		2A9DAE9D1B48FD2F007C359B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DAE9C1B48FD2F007C359B /* Images.xcassets */; };
+		2A9DAEA01B48FD2F007C359B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DAE9E1B48FD2F007C359B /* LaunchScreen.xib */; };
+		2A9DAEAC1B48FD2F007C359B /* UUChatCollectionViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAEAB1B48FD2F007C359B /* UUChatCollectionViewTests.m */; };
+		2A9DAEC21B48FE61007C359B /* bg_bubble_m_nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DAEBC1B48FE61007C359B /* bg_bubble_m_nor@2x.png */; };
+		2A9DAEC31B48FE61007C359B /* bg_bubble_m_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DAEBD1B48FE61007C359B /* bg_bubble_m_pressed@2x.png */; };
+		2A9DAEC41B48FE61007C359B /* bg_bubble_nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DAEBE1B48FE61007C359B /* bg_bubble_nor@2x.png */; };
+		2A9DAEC51B48FE61007C359B /* bg_bubble_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DAEBF1B48FE61007C359B /* bg_bubble_pressed@2x.png */; };
+		2A9DAEC61B48FE61007C359B /* userAvatarIncoming@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DAEC01B48FE61007C359B /* userAvatarIncoming@2x.png */; };
+		2A9DAECC1B48FF87007C359B /* UUChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAECB1B48FF87007C359B /* UUChatViewController.m */; };
+		2A9DAECF1B490047007C359B /* UUChatCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAECE1B490047007C359B /* UUChatCollectionView.m */; };
+		2A9DAED21B490060007C359B /* UUChatCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAED11B490060007C359B /* UUChatCollectionViewCell.m */; };
+		2A9DAED51B4900BC007C359B /* UUChatCollectionViewCellIncoming.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAED41B4900BC007C359B /* UUChatCollectionViewCellIncoming.m */; };
+		F51D47724EAE6F20AB6C1805 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2779EB7D723B5C8BE0C93609 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2A9DAEA61B48FD2F007C359B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A9DAE841B48FD2F007C359B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A9DAE8B1B48FD2F007C359B;
+			remoteInfo = UUChatCollectionView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		115EABC5BE28605951D843AB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		2779EB7D723B5C8BE0C93609 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A9DAE8C1B48FD2F007C359B /* UUChatCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UUChatCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A9DAE901B48FD2F007C359B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A9DAE911B48FD2F007C359B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2A9DAE931B48FD2F007C359B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2A9DAE941B48FD2F007C359B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2A9DAE961B48FD2F007C359B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2A9DAE971B48FD2F007C359B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2A9DAE9A1B48FD2F007C359B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2A9DAE9C1B48FD2F007C359B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2A9DAE9F1B48FD2F007C359B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		2A9DAEA51B48FD2F007C359B /* UUChatCollectionViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UUChatCollectionViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A9DAEAA1B48FD2F007C359B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A9DAEAB1B48FD2F007C359B /* UUChatCollectionViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UUChatCollectionViewTests.m; sourceTree = "<group>"; };
+		2A9DAEBC1B48FE61007C359B /* bg_bubble_m_nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_bubble_m_nor@2x.png"; sourceTree = "<group>"; };
+		2A9DAEBD1B48FE61007C359B /* bg_bubble_m_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_bubble_m_pressed@2x.png"; sourceTree = "<group>"; };
+		2A9DAEBE1B48FE61007C359B /* bg_bubble_nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_bubble_nor@2x.png"; sourceTree = "<group>"; };
+		2A9DAEBF1B48FE61007C359B /* bg_bubble_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_bubble_pressed@2x.png"; sourceTree = "<group>"; };
+		2A9DAEC01B48FE61007C359B /* userAvatarIncoming@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "userAvatarIncoming@2x.png"; sourceTree = "<group>"; };
+		2A9DAEC81B48FEAF007C359B /* Chat-Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Chat-Macros.h"; sourceTree = "<group>"; };
+		2A9DAEC91B48FECA007C359B /* Chat-Import.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Chat-Import.h"; sourceTree = "<group>"; };
+		2A9DAECA1B48FF87007C359B /* UUChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChatViewController.h; sourceTree = "<group>"; };
+		2A9DAECB1B48FF87007C359B /* UUChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChatViewController.m; sourceTree = "<group>"; };
+		2A9DAECD1B490047007C359B /* UUChatCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChatCollectionView.h; sourceTree = "<group>"; };
+		2A9DAECE1B490047007C359B /* UUChatCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChatCollectionView.m; sourceTree = "<group>"; };
+		2A9DAED01B490060007C359B /* UUChatCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChatCollectionViewCell.h; sourceTree = "<group>"; };
+		2A9DAED11B490060007C359B /* UUChatCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChatCollectionViewCell.m; sourceTree = "<group>"; };
+		2A9DAED31B4900BC007C359B /* UUChatCollectionViewCellIncoming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChatCollectionViewCellIncoming.h; sourceTree = "<group>"; };
+		2A9DAED41B4900BC007C359B /* UUChatCollectionViewCellIncoming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChatCollectionViewCellIncoming.m; sourceTree = "<group>"; };
+		AC4C885438FFEFF1889DD338 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2A9DAE891B48FD2F007C359B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F51D47724EAE6F20AB6C1805 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A9DAEA21B48FD2F007C359B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2A9DAE831B48FD2F007C359B = {
+			isa = PBXGroup;
+			children = (
+				2A9DAE8E1B48FD2F007C359B /* UUChatCollectionView */,
+				2A9DAEA81B48FD2F007C359B /* UUChatCollectionViewTests */,
+				2A9DAE8D1B48FD2F007C359B /* Products */,
+				E219DDA9EFF0FD03231F09A8 /* Pods */,
+				65A1DC9DFD45B51757903387 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2A9DAE8D1B48FD2F007C359B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2A9DAE8C1B48FD2F007C359B /* UUChatCollectionView.app */,
+				2A9DAEA51B48FD2F007C359B /* UUChatCollectionViewTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A9DAE8E1B48FD2F007C359B /* UUChatCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				2A9DAEC71B48FE75007C359B /* Demo */,
+				2A9DAEB51B48FE61007C359B /* UUChat */,
+				2A9DAE931B48FD2F007C359B /* AppDelegate.h */,
+				2A9DAE941B48FD2F007C359B /* AppDelegate.m */,
+				2A9DAE961B48FD2F007C359B /* ViewController.h */,
+				2A9DAE971B48FD2F007C359B /* ViewController.m */,
+				2A9DAE991B48FD2F007C359B /* Main.storyboard */,
+				2A9DAE9C1B48FD2F007C359B /* Images.xcassets */,
+				2A9DAE9E1B48FD2F007C359B /* LaunchScreen.xib */,
+				2A9DAE8F1B48FD2F007C359B /* Supporting Files */,
+			);
+			path = UUChatCollectionView;
+			sourceTree = "<group>";
+		};
+		2A9DAE8F1B48FD2F007C359B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2A9DAE901B48FD2F007C359B /* Info.plist */,
+				2A9DAE911B48FD2F007C359B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2A9DAEA81B48FD2F007C359B /* UUChatCollectionViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				2A9DAEAB1B48FD2F007C359B /* UUChatCollectionViewTests.m */,
+				2A9DAEA91B48FD2F007C359B /* Supporting Files */,
+			);
+			path = UUChatCollectionViewTests;
+			sourceTree = "<group>";
+		};
+		2A9DAEA91B48FD2F007C359B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2A9DAEAA1B48FD2F007C359B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2A9DAEB51B48FE61007C359B /* UUChat */ = {
+			isa = PBXGroup;
+			children = (
+				2A9DAEB61B48FE61007C359B /* Configs */,
+				2A9DAEB71B48FE61007C359B /* Controller */,
+				2A9DAEB81B48FE61007C359B /* Layout */,
+				2A9DAEB91B48FE61007C359B /* Model */,
+				2A9DAEBA1B48FE61007C359B /* Resource */,
+				2A9DAEC11B48FE61007C359B /* View */,
+			);
+			path = UUChat;
+			sourceTree = "<group>";
+		};
+		2A9DAEB61B48FE61007C359B /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				2A9DAEC81B48FEAF007C359B /* Chat-Macros.h */,
+				2A9DAEC91B48FECA007C359B /* Chat-Import.h */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
+		2A9DAEB71B48FE61007C359B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2A9DAECA1B48FF87007C359B /* UUChatViewController.h */,
+				2A9DAECB1B48FF87007C359B /* UUChatViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2A9DAEB81B48FE61007C359B /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		2A9DAEB91B48FE61007C359B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2A9DAEBA1B48FE61007C359B /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				2A9DAEBB1B48FE61007C359B /* image */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		2A9DAEBB1B48FE61007C359B /* image */ = {
+			isa = PBXGroup;
+			children = (
+				2A9DAEBC1B48FE61007C359B /* bg_bubble_m_nor@2x.png */,
+				2A9DAEBD1B48FE61007C359B /* bg_bubble_m_pressed@2x.png */,
+				2A9DAEBE1B48FE61007C359B /* bg_bubble_nor@2x.png */,
+				2A9DAEBF1B48FE61007C359B /* bg_bubble_pressed@2x.png */,
+				2A9DAEC01B48FE61007C359B /* userAvatarIncoming@2x.png */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+		2A9DAEC11B48FE61007C359B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2A9DAECD1B490047007C359B /* UUChatCollectionView.h */,
+				2A9DAECE1B490047007C359B /* UUChatCollectionView.m */,
+				2A9DAED01B490060007C359B /* UUChatCollectionViewCell.h */,
+				2A9DAED11B490060007C359B /* UUChatCollectionViewCell.m */,
+				2A9DAED31B4900BC007C359B /* UUChatCollectionViewCellIncoming.h */,
+				2A9DAED41B4900BC007C359B /* UUChatCollectionViewCellIncoming.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2A9DAEC71B48FE75007C359B /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		65A1DC9DFD45B51757903387 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2779EB7D723B5C8BE0C93609 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E219DDA9EFF0FD03231F09A8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC4C885438FFEFF1889DD338 /* Pods.debug.xcconfig */,
+				115EABC5BE28605951D843AB /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2A9DAE8B1B48FD2F007C359B /* UUChatCollectionView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A9DAEAF1B48FD2F007C359B /* Build configuration list for PBXNativeTarget "UUChatCollectionView" */;
+			buildPhases = (
+				48F092D25021F406433E9DF3 /* Check Pods Manifest.lock */,
+				2A9DAE881B48FD2F007C359B /* Sources */,
+				2A9DAE891B48FD2F007C359B /* Frameworks */,
+				2A9DAE8A1B48FD2F007C359B /* Resources */,
+				F3B62691A3ACFF9BD4E3125A /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UUChatCollectionView;
+			productName = UUChatCollectionView;
+			productReference = 2A9DAE8C1B48FD2F007C359B /* UUChatCollectionView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2A9DAEA41B48FD2F007C359B /* UUChatCollectionViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A9DAEB21B48FD2F007C359B /* Build configuration list for PBXNativeTarget "UUChatCollectionViewTests" */;
+			buildPhases = (
+				2A9DAEA11B48FD2F007C359B /* Sources */,
+				2A9DAEA21B48FD2F007C359B /* Frameworks */,
+				2A9DAEA31B48FD2F007C359B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A9DAEA71B48FD2F007C359B /* PBXTargetDependency */,
+			);
+			name = UUChatCollectionViewTests;
+			productName = UUChatCollectionViewTests;
+			productReference = 2A9DAEA51B48FD2F007C359B /* UUChatCollectionViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2A9DAE841B48FD2F007C359B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = zhangyu;
+				TargetAttributes = {
+					2A9DAE8B1B48FD2F007C359B = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					2A9DAEA41B48FD2F007C359B = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 2A9DAE8B1B48FD2F007C359B;
+					};
+				};
+			};
+			buildConfigurationList = 2A9DAE871B48FD2F007C359B /* Build configuration list for PBXProject "UUChatCollectionView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2A9DAE831B48FD2F007C359B;
+			productRefGroup = 2A9DAE8D1B48FD2F007C359B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2A9DAE8B1B48FD2F007C359B /* UUChatCollectionView */,
+				2A9DAEA41B48FD2F007C359B /* UUChatCollectionViewTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2A9DAE8A1B48FD2F007C359B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A9DAEC61B48FE61007C359B /* userAvatarIncoming@2x.png in Resources */,
+				2A9DAEC51B48FE61007C359B /* bg_bubble_pressed@2x.png in Resources */,
+				2A9DAE9B1B48FD2F007C359B /* Main.storyboard in Resources */,
+				2A9DAEC31B48FE61007C359B /* bg_bubble_m_pressed@2x.png in Resources */,
+				2A9DAEC21B48FE61007C359B /* bg_bubble_m_nor@2x.png in Resources */,
+				2A9DAEA01B48FD2F007C359B /* LaunchScreen.xib in Resources */,
+				2A9DAE9D1B48FD2F007C359B /* Images.xcassets in Resources */,
+				2A9DAEC41B48FE61007C359B /* bg_bubble_nor@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A9DAEA31B48FD2F007C359B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		48F092D25021F406433E9DF3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F3B62691A3ACFF9BD4E3125A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2A9DAE881B48FD2F007C359B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A9DAED51B4900BC007C359B /* UUChatCollectionViewCellIncoming.m in Sources */,
+				2A9DAED21B490060007C359B /* UUChatCollectionViewCell.m in Sources */,
+				2A9DAE981B48FD2F007C359B /* ViewController.m in Sources */,
+				2A9DAECF1B490047007C359B /* UUChatCollectionView.m in Sources */,
+				2A9DAE951B48FD2F007C359B /* AppDelegate.m in Sources */,
+				2A9DAECC1B48FF87007C359B /* UUChatViewController.m in Sources */,
+				2A9DAE921B48FD2F007C359B /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A9DAEA11B48FD2F007C359B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A9DAEAC1B48FD2F007C359B /* UUChatCollectionViewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2A9DAEA71B48FD2F007C359B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2A9DAE8B1B48FD2F007C359B /* UUChatCollectionView */;
+			targetProxy = 2A9DAEA61B48FD2F007C359B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2A9DAE991B48FD2F007C359B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A9DAE9A1B48FD2F007C359B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2A9DAE9E1B48FD2F007C359B /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A9DAE9F1B48FD2F007C359B /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2A9DAEAD1B48FD2F007C359B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2A9DAEAE1B48FD2F007C359B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2A9DAEB01B48FD2F007C359B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC4C885438FFEFF1889DD338 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = UUChatCollectionView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2A9DAEB11B48FD2F007C359B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 115EABC5BE28605951D843AB /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = UUChatCollectionView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2A9DAEB31B48FD2F007C359B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = UUChatCollectionViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UUChatCollectionView.app/UUChatCollectionView";
+			};
+			name = Debug;
+		};
+		2A9DAEB41B48FD2F007C359B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = UUChatCollectionViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UUChatCollectionView.app/UUChatCollectionView";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2A9DAE871B48FD2F007C359B /* Build configuration list for PBXProject "UUChatCollectionView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A9DAEAD1B48FD2F007C359B /* Debug */,
+				2A9DAEAE1B48FD2F007C359B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A9DAEAF1B48FD2F007C359B /* Build configuration list for PBXNativeTarget "UUChatCollectionView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A9DAEB01B48FD2F007C359B /* Debug */,
+				2A9DAEB11B48FD2F007C359B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A9DAEB21B48FD2F007C359B /* Build configuration list for PBXNativeTarget "UUChatCollectionViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A9DAEB31B48FD2F007C359B /* Debug */,
+				2A9DAEB41B48FD2F007C359B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2A9DAE841B48FD2F007C359B /* Project object */;
+}

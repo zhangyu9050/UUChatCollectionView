@@ -1,0 +1,13 @@
+PODS:
+  - Masonry (0.6.1)
+  - OCMock (3.1.2)
+
+DEPENDENCIES:
+  - Masonry (~> 0.6.1)
+  - OCMock (~> 3.1.2)
+
+SPEC CHECKSUMS:
+  Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
+  OCMock: a10ea9f0a6e921651f96f78b6faee95ebc813b92
+
+COCOAPODS: 0.36.4
