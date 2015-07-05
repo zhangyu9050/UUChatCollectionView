@@ -49,6 +49,8 @@
     
     self.navigationItem.title = @"Chat Message";
     [self.view addSubview:self.collectionView];
+    
+    [self createDataSoure];
 }
 
 - (void)updateConstraint{
@@ -168,6 +170,8 @@
         
         [_messageArray addObject:message];
     }
+    
+    [_collectionView reloadData];
 }
 
 #pragma mark - Getters And Setters
@@ -177,8 +181,6 @@
     if (!_collectionView) {
         
         _messageArray = [NSMutableArray array];
-        
-        [self createDataSoure];
         
         UUChatCollectionViewFlowLayout *flowLayout= [[UUChatCollectionViewFlowLayout alloc] init];
         

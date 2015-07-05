@@ -13,6 +13,7 @@
 @interface UUChatCollectionViewFlowLayout()
 
 @property (nonatomic, strong) UIFont *messageFont;
+@property (nonatomic, assign) CGFloat messageBubbleMaxWidth;
 
 @end
 
@@ -42,6 +43,7 @@
     self.scrollDirection    = UICollectionViewScrollDirectionVertical;
     self.sectionInset       = UIEdgeInsetsMake(10.0f, 4.0f, 10.0f, 4.0f);
     self.minimumLineSpacing = 4.0f;
+//    self.estimatedItemSize  = CGSizeMake(ScreenWidth, 100);
     
     //    _outgoingAvatarSize     = _incomingAvatarSize = kUserAvatarSize;
     //    _timestampInsets        = UIEdgeInsetsMake(15, 0, 0, 0);
@@ -50,7 +52,27 @@
     //    _messageInsets          = UIEdgeInsetsMake(10, 20, 10, 15);
     
     _messageFont = [UIFont systemFontOfSize:17];
+    _messageBubbleMaxWidth = ScreenWidth -140;
 }
+
+//- (void)invalidateLayoutWithContext:(UICollectionViewFlowLayoutInvalidationContext *)context
+//{
+//    if (context.invalidateDataSourceCounts) {
+//        context.invalidateFlowLayoutAttributes = YES;
+//        context.invalidateFlowLayoutDelegateMetrics = YES;
+//    }
+//    
+////    if (context.invalidateFlowLayoutAttributes
+////        || context.invalidateFlowLayoutDelegateMetrics) {
+////        [self jsq_resetDynamicAnimator];
+////    }
+////    
+////    if (context.invalidateFlowLayoutMessagesCache) {
+////        [self jsq_resetLayout];
+////    }
+//    
+//    [super invalidateLayoutWithContext:context];
+//}
 
 
 - (void)prepareLayout{
@@ -86,16 +108,16 @@
     return customAttributes;
 }
 
-- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
-{
-    
-    CGRect oldBounds = self.collectionView.bounds;
-    if (CGRectGetWidth(newBounds) != CGRectGetWidth(oldBounds)) {
-        return YES;
-    }
-    
-    return NO;
-}
+//- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
+//{
+//    
+//    CGRect oldBounds = self.collectionView.bounds;
+//    if (CGRectGetWidth(newBounds) != CGRectGetWidth(oldBounds)) {
+//        return YES;
+//    }
+//    
+//    return NO;
+//}
 
 - (void)prepareForCollectionViewUpdates:(NSArray *)updateItems
 {
@@ -126,7 +148,7 @@
 
     CGSize finalSize = CGSizeZero;
     
-    CGRect stringRect = [message.message boundingRectWithSize:CGSizeMake(ScreenWidth -140, CGFLOAT_MAX)
+    CGRect stringRect = [message.message boundingRectWithSize:CGSizeMake(_messageBubbleMaxWidth, CGFLOAT_MAX)
                                                          options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
                                                       attributes:@{ NSFontAttributeName : _messageFont }
                                                          context:nil];
@@ -158,7 +180,7 @@
     
 //    CGSize messageBubbleSize = [self messageBubbleSizeForItemAtIndexPath:indexPath];
     
-    layoutAttributes.messageBubbleMaxWidth = ScreenWidth -140;
+    layoutAttributes.messageBubbleMaxWidth = _messageBubbleMaxWidth;
     
     layoutAttributes.messageBubbleInsets = UIEdgeInsetsMake(5, 0, 0, 0);
     

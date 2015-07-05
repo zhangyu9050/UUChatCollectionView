@@ -10,7 +10,7 @@
 
 @interface UUChatMessage : NSObject
 
-@property (nonatomic, strong) NSString *messageId;
+@property (nonatomic, strong) NSString *fromId;
 
 @property (nonatomic, strong) NSString *timestamp;
 

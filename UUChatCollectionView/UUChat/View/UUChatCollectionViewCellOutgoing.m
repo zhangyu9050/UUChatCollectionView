@@ -59,7 +59,9 @@
         
         [self.lblTimestamp mas_makeConstraints:^(MASConstraintMaker *make) {
             
-            make.size.mas_equalTo(CGSizeMake(ScreenWidth, 25));
+            make.width.mas_equalTo(ScreenWidth);
+            make.height.mas_lessThanOrEqualTo(@25);
+//            make.size.mas_equalTo(CGSizeMake(ScreenWidth, 25));
             make.top.equalTo(self.contentView).offset(15);
             make.centerX.equalTo(self.contentView);
         }];
