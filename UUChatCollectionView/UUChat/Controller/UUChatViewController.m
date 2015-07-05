@@ -14,7 +14,9 @@
                                     UICollectionViewDelegate,
                                     UICollectionViewDelegateFlowLayout >
 
+
 @property (nonatomic, strong, getter = getCollectionView) UUChatCollectionView *collectionView;
+@property (nonatomic, strong, getter = getToolBarView) UUChatToolBarView *toolbarView;
 
 @property (nonatomic, strong) NSMutableArray *messageArray;
 
@@ -22,10 +24,14 @@
 
 @implementation UUChatViewController
 
-- (void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated {
 
-    [self.view layoutIfNeeded];
-    [self.collectionView.collectionViewLayout invalidateLayout];
+    [self subscribeToKeyboard];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+
+    [self unsubscribeKeyboard];
 }
 
 - (void)viewDidLoad {
@@ -49,6 +55,7 @@
     
     self.navigationItem.title = @"Chat Message";
     [self.view addSubview:self.collectionView];
+    [self.view addSubview:self.toolbarView];
     
     [self createDataSoure];
 }
@@ -57,7 +64,13 @@
     
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 50, 0));
+    }];
+    
+    [_toolbarView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.height.mas_equalTo(@50);
+        make.left.and.right.and.bottom.equalTo(self.view);
     }];
 }
 
@@ -121,6 +134,38 @@
 #pragma mark - Public Methods
 
 #pragma mark - Private Methods
+
+- (void)subscribeToKeyboard {
+    
+    [self subscribeKeyboardWithAnimations:^(CGRect keyboardRect, NSTimeInterval duration, BOOL isShowing) {
+    
+        if (CGRectIsNull(keyboardRect)) {
+            return;
+        }
+        
+        __block CGFloat offsetHeight = 0;
+        [_toolbarView setNeedsUpdateConstraints];
+        [_toolbarView updateConstraintsIfNeeded];
+        
+        if (isShowing) {
+            
+            offsetHeight = -CGRectGetHeight(keyboardRect);
+
+        }else offsetHeight = 0;
+        
+        [_toolbarView mas_updateConstraints:^(MASConstraintMaker *make) {
+            
+            make.bottom.equalTo(self.view).offset(offsetHeight);
+        }];
+    
+        [UIView animateWithDuration:duration animations:^{
+            
+            [_toolbarView layoutIfNeeded];
+        }];
+        
+    } completion:nil];
+}
+
 
 - (void)createDataSoure{
 
@@ -195,6 +240,16 @@
     }
     
     return _collectionView;
+}
+
+- (UUChatToolBarView *)getToolBarView{
+
+    if (!_toolbarView) {
+        
+        _toolbarView = [[UUChatToolBarView alloc] init];
+    }
+    
+    return _toolbarView;
 }
 
 @end

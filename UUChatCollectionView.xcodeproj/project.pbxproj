@@ -27,6 +27,16 @@
 		2A9DAEDB1B490785007C359B /* UUChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAEDA1B490785007C359B /* UUChatMessage.m */; };
 		2A9DAEDE1B4909ED007C359B /* UUChatCollectionViewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAEDD1B4909ED007C359B /* UUChatCollectionViewLayoutAttributes.m */; };
 		2A9DAEE11B49181D007C359B /* UUChatCollectionViewCellOutgoing.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAEE01B49181D007C359B /* UUChatCollectionViewCellOutgoing.m */; };
+		2A9DAEE41B492FD2007C359B /* UUChatToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAEE31B492FD2007C359B /* UUChatToolBarView.m */; };
+		2A9DAEE71B4932ED007C359B /* ic_voice_bar_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DAEE51B4932ED007C359B /* ic_voice_bar_pressed@2x.png */; };
+		2A9DAEE81B4932ED007C359B /* ic_voice_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DAEE61B4932ED007C359B /* ic_voice_bar@2x.png */; };
+		2A9DAEEB1B493363007C359B /* ic_add_bar_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DAEE91B493363007C359B /* ic_add_bar_pressed@2x.png */; };
+		2A9DAEEC1B493363007C359B /* ic_add_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DAEEA1B493363007C359B /* ic_add_bar@2x.png */; };
+		2A9DAEF11B493B93007C359B /* ic_expression_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DAEED1B493B93007C359B /* ic_expression_pressed@2x.png */; };
+		2A9DAEF21B493B93007C359B /* ic_expression@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DAEEE1B493B93007C359B /* ic_expression@2x.png */; };
+		2A9DAEF31B493B93007C359B /* ic_keyboar_pressedd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DAEEF1B493B93007C359B /* ic_keyboar_pressedd@2x.png */; };
+		2A9DAEF41B493B93007C359B /* ic_keyboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DAEF01B493B93007C359B /* ic_keyboard@2x.png */; };
+		2A9DAEF81B493C3B007C359B /* UIViewController+KeyboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAEF71B493C3B007C359B /* UIViewController+KeyboardAnimation.m */; };
 		F51D47724EAE6F20AB6C1805 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2779EB7D723B5C8BE0C93609 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +89,18 @@
 		2A9DAEDD1B4909ED007C359B /* UUChatCollectionViewLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChatCollectionViewLayoutAttributes.m; sourceTree = "<group>"; };
 		2A9DAEDF1B49181D007C359B /* UUChatCollectionViewCellOutgoing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChatCollectionViewCellOutgoing.h; sourceTree = "<group>"; };
 		2A9DAEE01B49181D007C359B /* UUChatCollectionViewCellOutgoing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChatCollectionViewCellOutgoing.m; sourceTree = "<group>"; };
+		2A9DAEE21B492FD2007C359B /* UUChatToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChatToolBarView.h; sourceTree = "<group>"; };
+		2A9DAEE31B492FD2007C359B /* UUChatToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChatToolBarView.m; sourceTree = "<group>"; };
+		2A9DAEE51B4932ED007C359B /* ic_voice_bar_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_voice_bar_pressed@2x.png"; sourceTree = "<group>"; };
+		2A9DAEE61B4932ED007C359B /* ic_voice_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_voice_bar@2x.png"; sourceTree = "<group>"; };
+		2A9DAEE91B493363007C359B /* ic_add_bar_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_add_bar_pressed@2x.png"; sourceTree = "<group>"; };
+		2A9DAEEA1B493363007C359B /* ic_add_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_add_bar@2x.png"; sourceTree = "<group>"; };
+		2A9DAEED1B493B93007C359B /* ic_expression_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_expression_pressed@2x.png"; sourceTree = "<group>"; };
+		2A9DAEEE1B493B93007C359B /* ic_expression@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_expression@2x.png"; sourceTree = "<group>"; };
+		2A9DAEEF1B493B93007C359B /* ic_keyboar_pressedd@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_keyboar_pressedd@2x.png"; sourceTree = "<group>"; };
+		2A9DAEF01B493B93007C359B /* ic_keyboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_keyboard@2x.png"; sourceTree = "<group>"; };
+		2A9DAEF61B493C3B007C359B /* UIViewController+KeyboardAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KeyboardAnimation.h"; sourceTree = "<group>"; };
+		2A9DAEF71B493C3B007C359B /* UIViewController+KeyboardAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KeyboardAnimation.m"; sourceTree = "<group>"; };
 		AC4C885438FFEFF1889DD338 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +189,7 @@
 		2A9DAEB51B48FE61007C359B /* UUChat */ = {
 			isa = PBXGroup;
 			children = (
+				2A9DAEF51B493C0B007C359B /* Categories */,
 				2A9DAEB61B48FE61007C359B /* Configs */,
 				2A9DAEB71B48FE61007C359B /* Controller */,
 				2A9DAEB81B48FE61007C359B /* Layout */,
@@ -226,6 +249,14 @@
 		2A9DAEBB1B48FE61007C359B /* image */ = {
 			isa = PBXGroup;
 			children = (
+				2A9DAEED1B493B93007C359B /* ic_expression_pressed@2x.png */,
+				2A9DAEEE1B493B93007C359B /* ic_expression@2x.png */,
+				2A9DAEEF1B493B93007C359B /* ic_keyboar_pressedd@2x.png */,
+				2A9DAEF01B493B93007C359B /* ic_keyboard@2x.png */,
+				2A9DAEE91B493363007C359B /* ic_add_bar_pressed@2x.png */,
+				2A9DAEEA1B493363007C359B /* ic_add_bar@2x.png */,
+				2A9DAEE51B4932ED007C359B /* ic_voice_bar_pressed@2x.png */,
+				2A9DAEE61B4932ED007C359B /* ic_voice_bar@2x.png */,
 				2A9DAEBC1B48FE61007C359B /* bg_bubble_m_nor@2x.png */,
 				2A9DAEBD1B48FE61007C359B /* bg_bubble_m_pressed@2x.png */,
 				2A9DAEBE1B48FE61007C359B /* bg_bubble_nor@2x.png */,
@@ -246,6 +277,8 @@
 				2A9DAED41B4900BC007C359B /* UUChatCollectionViewCellIncoming.m */,
 				2A9DAEDF1B49181D007C359B /* UUChatCollectionViewCellOutgoing.h */,
 				2A9DAEE01B49181D007C359B /* UUChatCollectionViewCellOutgoing.m */,
+				2A9DAEE21B492FD2007C359B /* UUChatToolBarView.h */,
+				2A9DAEE31B492FD2007C359B /* UUChatToolBarView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -255,6 +288,15 @@
 			children = (
 			);
 			path = Demo;
+			sourceTree = "<group>";
+		};
+		2A9DAEF51B493C0B007C359B /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				2A9DAEF61B493C3B007C359B /* UIViewController+KeyboardAnimation.h */,
+				2A9DAEF71B493C3B007C359B /* UIViewController+KeyboardAnimation.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		65A1DC9DFD45B51757903387 /* Frameworks */ = {
@@ -357,10 +399,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A9DAEC61B48FE61007C359B /* userAvatarIncoming@2x.png in Resources */,
+				2A9DAEE71B4932ED007C359B /* ic_voice_bar_pressed@2x.png in Resources */,
+				2A9DAEEC1B493363007C359B /* ic_add_bar@2x.png in Resources */,
 				2A9DAEC51B48FE61007C359B /* bg_bubble_pressed@2x.png in Resources */,
 				2A9DAE9B1B48FD2F007C359B /* Main.storyboard in Resources */,
+				2A9DAEEB1B493363007C359B /* ic_add_bar_pressed@2x.png in Resources */,
 				2A9DAEC31B48FE61007C359B /* bg_bubble_m_pressed@2x.png in Resources */,
+				2A9DAEE81B4932ED007C359B /* ic_voice_bar@2x.png in Resources */,
+				2A9DAEF21B493B93007C359B /* ic_expression@2x.png in Resources */,
 				2A9DAEC21B48FE61007C359B /* bg_bubble_m_nor@2x.png in Resources */,
+				2A9DAEF31B493B93007C359B /* ic_keyboar_pressedd@2x.png in Resources */,
+				2A9DAEF41B493B93007C359B /* ic_keyboard@2x.png in Resources */,
+				2A9DAEF11B493B93007C359B /* ic_expression_pressed@2x.png in Resources */,
 				2A9DAEA01B48FD2F007C359B /* LaunchScreen.xib in Resources */,
 				2A9DAE9D1B48FD2F007C359B /* Images.xcassets in Resources */,
 				2A9DAEC41B48FE61007C359B /* bg_bubble_nor@2x.png in Resources */,
@@ -418,8 +468,10 @@
 				2A9DAEDE1B4909ED007C359B /* UUChatCollectionViewLayoutAttributes.m in Sources */,
 				2A9DAED21B490060007C359B /* UUChatCollectionViewCell.m in Sources */,
 				2A9DAE981B48FD2F007C359B /* ViewController.m in Sources */,
+				2A9DAEF81B493C3B007C359B /* UIViewController+KeyboardAnimation.m in Sources */,
 				2A9DAECF1B490047007C359B /* UUChatCollectionView.m in Sources */,
 				2A9DAEDB1B490785007C359B /* UUChatMessage.m in Sources */,
+				2A9DAEE41B492FD2007C359B /* UUChatToolBarView.m in Sources */,
 				2A9DAED81B49056D007C359B /* UUChatCollectionViewFlowLayout.m in Sources */,
 				2A9DAE951B48FD2F007C359B /* AppDelegate.m in Sources */,
 				2A9DAECC1B48FF87007C359B /* UUChatViewController.m in Sources */,

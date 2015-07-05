@@ -12,12 +12,15 @@
 //OtherFramework
 #import "Masonry.h"
 
+//Categories
+#import "UIViewController+KeyboardAnimation.h"
 
 //View
 #import "UUChatCollectionView.h"
 #import "UUChatCollectionViewCell.h"
 #import "UUChatCollectionViewCellIncoming.h"
 #import "UUChatCollectionViewCellOutgoing.h"
+#import "UUChatToolBarView.h"
 
 //Layout
 #import "UUChatCollectionViewFlowLayout.h"
