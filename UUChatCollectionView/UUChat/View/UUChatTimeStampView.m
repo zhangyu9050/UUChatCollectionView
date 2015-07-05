@@ -56,7 +56,7 @@
         
         _lblTimestamp = [[UILabel alloc] init];
         _lblTimestamp.font = [UIFont systemFontOfSize:13];
-        _lblTimestamp.textColor = [UIColor whiteColor];
+        _lblTimestamp.textColor = COLOR_WITH_RGB(252,252,252,1);;
     }
     
     return _lblTimestamp;

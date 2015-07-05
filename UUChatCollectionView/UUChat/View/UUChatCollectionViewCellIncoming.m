@@ -57,7 +57,7 @@
         
         [self.timeStampView mas_makeConstraints:^(MASConstraintMaker *make) {
             
-//            make.height.mas_lessThanOrEqualTo(@20);
+            make.height.mas_lessThanOrEqualTo(@20);
             make.top.equalTo(self.contentView).offset(15);
             make.centerX.equalTo(self.contentView);
         }];
@@ -71,7 +71,7 @@
         
         [self.lblUserName mas_makeConstraints:^(MASConstraintMaker *make) {
             
-            make.height.mas_equalTo(@25);
+//            make.height.mas_equalTo(@25);
             make.width.mas_equalTo([UUChatCollectionViewCell maxBubboleWidth]);
             make.top.equalTo(self.imgUserAvatar);
             make.left.equalTo(self.imgUserAvatar.mas_right).offset(10);
@@ -81,7 +81,7 @@
         [self.imgBubble mas_makeConstraints:^(MASConstraintMaker *make) {
             
             //            make.width.mas_equalTo([CBChatCollectionCell maxBubboleWidth]);
-            make.top.equalTo(self.lblUserName.mas_bottom).offset(5);
+            make.top.equalTo(self.lblUserName.mas_bottom).offset(0);
             make.left.equalTo(self.imgUserAvatar.mas_right).offset(5);
             make.bottom.equalTo(self.contentView.mas_bottom).offset(0);
         }];

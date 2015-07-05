@@ -187,7 +187,7 @@
     
     layoutAttributes.messageBubbleMaxWidth = _messageBubbleMaxWidth;
     
-    layoutAttributes.messageBubbleInsets = UIEdgeInsetsMake(5, 0, 0, 0);
+    layoutAttributes.messageBubbleInsets = UIEdgeInsetsMake(0, 0, 0, 0);
     
     layoutAttributes.messageFrameInsets = UIEdgeInsetsMake(10, 20, 10, 15);
     

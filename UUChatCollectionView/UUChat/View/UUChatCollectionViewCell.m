@@ -125,6 +125,8 @@
     if (!_lblUserName) {
         
         _lblUserName = UILabel.new;
+        _lblUserName.font = [UIFont systemFontOfSize:14];
+        _lblUserName.textColor = COLOR_WITH_RGB(103,103,103,1);
     }
     
     return _lblUserName;
@@ -137,6 +139,7 @@
         
         _lblMessage = UILabel.new;
         _lblMessage.numberOfLines = 0;
+         _lblMessage.textColor = COLOR_WITH_RGB(63,63,63,1);
         _lblMessage.preferredMaxLayoutWidth = [UUChatCollectionViewCell maxBubboleWidth];
         
         //        _lblMessage.layer.borderWidth = 2;
