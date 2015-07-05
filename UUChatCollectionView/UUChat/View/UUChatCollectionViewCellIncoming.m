@@ -55,11 +55,9 @@
     
     if (!self.didSetupConstraints) {
         
-        [self.lblTimestamp mas_makeConstraints:^(MASConstraintMaker *make) {
+        [self.timeStampView mas_makeConstraints:^(MASConstraintMaker *make) {
             
-            make.width.mas_equalTo(ScreenWidth);
-            make.height.mas_lessThanOrEqualTo(@25);
-//            make.size.mas_equalTo(CGSizeMake(ScreenWidth, 25));
+//            make.height.mas_lessThanOrEqualTo(@20);
             make.top.equalTo(self.contentView).offset(15);
             make.centerX.equalTo(self.contentView);
         }];
@@ -67,7 +65,7 @@
         [self.imgUserAvatar mas_makeConstraints:^(MASConstraintMaker *make) {
             
             make.size.mas_equalTo(kUserAvatarSize);
-            make.top.equalTo(self.lblTimestamp.mas_bottom).offset(10);
+            make.top.equalTo(self.timeStampView.mas_bottom).offset(10);
             make.left.equalTo(self.contentView).offset(10);
         }];
         
@@ -109,7 +107,7 @@
 
 - (void)setContentWithObject:(UUChatMessage *)obj{
 
-    self.lblTimestamp.text = obj.timestamp;
+    [self.timeStampView setContent:obj.timestamp];
     self.lblUserName.text = obj.userName;
     self.imgUserAvatar.image = [UIImage imageNamed:obj.userAvatar];
 

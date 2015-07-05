@@ -210,7 +210,7 @@
     for (int i = 0; i < 10; i++) {
         
         UUChatMessage *message = [[UUChatMessage alloc] init];
-        message.timestamp = @"2015-09";
+        message.timestamp = @"2015-09-09";
         message.userName = @"zhangyu";
         message.userAvatar = @"userAvatarIncoming";
         

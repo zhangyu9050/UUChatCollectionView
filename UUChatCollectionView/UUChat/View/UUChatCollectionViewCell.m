@@ -8,6 +8,7 @@
 
 #import "UUChatCollectionViewCell.h"
 #import "Chat-Macros.h"
+#import "Chat-Import.h"
 
 @implementation UUChatCollectionViewCell
 
@@ -47,13 +48,13 @@
     
     [self.contentView addSubview:self.imgUserAvatar];
     [self.contentView addSubview:self.lblUserName];
-    [self.contentView addSubview:self.lblTimestamp];
+    [self.contentView addSubview:self.timeStampView];
     [self.contentView addSubview:self.imgBubble];
     
     [_imgBubble addSubview:self.lblMessage];
     
-    self.contentView.layer.borderColor = [UIColor blueColor].CGColor;
-    self.contentView.layer.borderWidth = 2;
+//    self.contentView.layer.borderColor = [UIColor blueColor].CGColor;
+//    self.contentView.layer.borderWidth = 2;
 }
 
 #pragma mark - Delegate
@@ -63,6 +64,10 @@
 #pragma mark - Event Response
 
 #pragma mark - Public Methods
+
+- (void)setContentWithObject:(UUChatMessage *)obj{
+
+}
 
 + (NSString *)cellReuseIdentifier{
     
@@ -105,15 +110,14 @@
     return _imgBubble;
 }
 
-- (UILabel *)getLabelTimestamp{
+- (UUChatTimeStampView *)getTimestampView{
     
-    if (!_lblTimestamp) {
+    if (!_timeStampView) {
         
-        _lblTimestamp = UILabel.new;
-        _lblTimestamp.textAlignment = NSTextAlignmentCenter;
+        _timeStampView = [[UUChatTimeStampView alloc] init];
     }
     
-    return _lblTimestamp;
+    return _timeStampView;
 }
 
 - (UILabel *)getLabelUserName{

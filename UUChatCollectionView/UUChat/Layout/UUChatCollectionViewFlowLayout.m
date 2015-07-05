@@ -157,7 +157,7 @@
                                                          options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
                                                       attributes:@{ NSFontAttributeName : _messageFont }
                                                          context:nil];
-    finalSize.height += 25;
+    finalSize.height += 20;
     finalSize.height += 25;
     finalSize.height += stringRect.size.height;
     

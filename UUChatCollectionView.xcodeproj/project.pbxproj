@@ -38,6 +38,7 @@
 		2A9DAEF41B493B93007C359B /* ic_keyboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DAEF01B493B93007C359B /* ic_keyboard@2x.png */; };
 		2A9DAEF81B493C3B007C359B /* UIViewController+KeyboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAEF71B493C3B007C359B /* UIViewController+KeyboardAnimation.m */; };
 		2A9DAEFB1B495C27007C359B /* UUChatCollectionViewFlowLayoutInvalidationContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAEFA1B495C27007C359B /* UUChatCollectionViewFlowLayoutInvalidationContext.m */; };
+		2A9DAF041B49879D007C359B /* UUChatTimeStampView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAF031B49879D007C359B /* UUChatTimeStampView.m */; };
 		F51D47724EAE6F20AB6C1805 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2779EB7D723B5C8BE0C93609 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,8 @@
 		2A9DAEF71B493C3B007C359B /* UIViewController+KeyboardAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KeyboardAnimation.m"; sourceTree = "<group>"; };
 		2A9DAEF91B495C27007C359B /* UUChatCollectionViewFlowLayoutInvalidationContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChatCollectionViewFlowLayoutInvalidationContext.h; sourceTree = "<group>"; };
 		2A9DAEFA1B495C27007C359B /* UUChatCollectionViewFlowLayoutInvalidationContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChatCollectionViewFlowLayoutInvalidationContext.m; sourceTree = "<group>"; };
+		2A9DAF021B49879D007C359B /* UUChatTimeStampView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChatTimeStampView.h; sourceTree = "<group>"; };
+		2A9DAF031B49879D007C359B /* UUChatTimeStampView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChatTimeStampView.m; sourceTree = "<group>"; };
 		AC4C885438FFEFF1889DD338 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -284,6 +287,8 @@
 				2A9DAEE01B49181D007C359B /* UUChatCollectionViewCellOutgoing.m */,
 				2A9DAEE21B492FD2007C359B /* UUChatToolBarView.h */,
 				2A9DAEE31B492FD2007C359B /* UUChatToolBarView.m */,
+				2A9DAF021B49879D007C359B /* UUChatTimeStampView.h */,
+				2A9DAF031B49879D007C359B /* UUChatTimeStampView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -470,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A9DAED51B4900BC007C359B /* UUChatCollectionViewCellIncoming.m in Sources */,
+				2A9DAF041B49879D007C359B /* UUChatTimeStampView.m in Sources */,
 				2A9DAEDE1B4909ED007C359B /* UUChatCollectionViewLayoutAttributes.m in Sources */,
 				2A9DAED21B490060007C359B /* UUChatCollectionViewCell.m in Sources */,
 				2A9DAE981B48FD2F007C359B /* ViewController.m in Sources */,

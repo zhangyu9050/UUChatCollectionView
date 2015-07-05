@@ -25,7 +25,6 @@
 
 - (void)configUI{
     
-    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     self.backgroundColor      = [UIColor whiteColor];
     self.keyboardDismissMode  = UIScrollViewKeyboardDismissModeNone;
     self.alwaysBounceVertical = YES;
