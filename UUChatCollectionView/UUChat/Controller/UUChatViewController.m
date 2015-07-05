@@ -64,34 +64,11 @@
     [self.view addSubview:self.collectionView];
     [self.view addSubview:self.toolbarView];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"1"
-                                                                              style:UIBarButtonItemStyleBordered
-                                                                             target:self
-                                                                             action:@selector(receiveMessagePressed:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"1"
+//                                                                              style:UIBarButtonItemStyleBordered
+//                                                                             target:self
+//                                                                             action:@selector(receiveMessagePressed:)];
 
-
-}
-
-- (void)receiveMessagePressed:(id)sender{
-
-//    [self scrollToBottomAnimated:NO];
-    
-//    [_collectionView setNeedsUpdateConstraints];
-//    [_collectionView updateConstraintsIfNeeded];
-//    
-//    [_collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
-//        
-//        
-//        make.top.equalTo(self.view).offset(-256);
-//    }];
-    
-    CGRect frame = _collectionView.frame;
-    frame.origin.y = -256;
-    [UIView animateWithDuration:10 animations:^{
-       
-        _collectionView.frame = frame;
-//        [_collectionView layoutIfNeeded];
-    }];
 
 }
 
@@ -207,11 +184,9 @@
 
         if (CGRectIsNull(keyboardRect)) return;
         
+        CGFloat offsetHeight = isShowing ? -CGRectGetHeight(keyboardRect) : 0;
         
-        __block CGFloat offsetHeight = 0;
-        offsetHeight = isShowing ? -CGRectGetHeight(keyboardRect) : 0;
-        
-        [weakSelf scrollToBottomAnimated:NO];
+        if (isShowing) [weakSelf scrollToBottomAnimated:NO];
         [_collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
            
             make.top.equalTo(self.view).offset(offsetHeight);
@@ -222,18 +197,9 @@
             make.bottom.equalTo(self.view).offset(offsetHeight);
         }];
         
-//        CGRect frame = _collectionView.frame;
-//        frame.origin.y = offsetHeight -50;
-//        _collectionView.frame = frame;
-        
-        [_collectionView setNeedsUpdateConstraints];
-        [_collectionView updateConstraintsIfNeeded];
-
-//        [UIView animateWithDuration:duration animations:^{
-        
-            [_collectionView layoutIfNeeded];
-            [_toolbarView layoutIfNeeded];
-//        }];
+        [_collectionView layoutIfNeeded];
+        [_toolbarView layoutIfNeeded];
+        [self.view layoutIfNeeded];
         
     } completion:nil];
 }
@@ -241,7 +207,7 @@
 
 - (void)createDataSoure{
 
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 10; i++) {
         
         UUChatMessage *message = [[UUChatMessage alloc] init];
         message.timestamp = @"2015-09";

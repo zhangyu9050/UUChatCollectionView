@@ -18,15 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    UIButton *btnGoto = [UIButton buttonWithType:UIButtonTypeCustom];
-    btnGoto.frame = CGRectMake(20, 80, 50, 50);
-    [btnGoto setTitle:@"Goto" forState:UIControlStateNormal];
-    [btnGoto addTarget:self action:@selector(onClickGoto:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btnGoto];
-    
-    btnGoto.layer.borderWidth = 2;
-    btnGoto.layer.borderColor = [UIColor redColor].CGColor;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,10 +41,9 @@
 
 #pragma mark - Event Response
 
-- (void)onClickGoto:(id)sender{
-    
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+
     [self.navigationController pushViewController:UUChatViewController.new animated:YES];
-    
 }
 
 #pragma mark - Public Methods
