@@ -31,6 +31,14 @@
     return self;
 }
 
+- (void)prepareForReuse{
+
+    [super prepareForReuse];
+    
+    _imgUserAvatar.image = nil;
+//    _imgBubble.image = nil;
+}
+
 #pragma mark - life cycle
 
 - (void)configUI{
@@ -75,6 +83,9 @@
     if (!_imgUserAvatar) {
         
         _imgUserAvatar = [[UIImageView alloc] init];
+        _imgUserAvatar.layer.cornerRadius = 44 /2 +1;
+        _imgUserAvatar.layer.masksToBounds = YES;
+        
     }
     
     return _imgUserAvatar;

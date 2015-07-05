@@ -35,13 +35,18 @@
     return [UUChatCollectionViewLayoutAttributes class];
 }
 
++ (Class)invalidationContextClass
+{
+    return [UUChatCollectionViewFlowLayoutInvalidationContext class];
+}
+
 
 #pragma mark - life cycle
 
 - (void)configUI{
     
     self.scrollDirection    = UICollectionViewScrollDirectionVertical;
-    self.sectionInset       = UIEdgeInsetsMake(10.0f, 4.0f, 10.0f, 4.0f);
+    self.sectionInset       = UIEdgeInsetsMake(0, 4.0f, 10.0f, 4.0f);
     self.minimumLineSpacing = 4.0f;
 //    self.estimatedItemSize  = CGSizeMake(ScreenWidth, 100);
     
@@ -108,16 +113,16 @@
     return customAttributes;
 }
 
-//- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
-//{
-//    
-//    CGRect oldBounds = self.collectionView.bounds;
-//    if (CGRectGetWidth(newBounds) != CGRectGetWidth(oldBounds)) {
-//        return YES;
-//    }
-//    
-//    return NO;
-//}
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
+{
+    
+    CGRect oldBounds = self.collectionView.bounds;
+    if (CGRectGetWidth(newBounds) != CGRectGetWidth(oldBounds)) {
+        return YES;
+    }
+    
+    return NO;
+}
 
 - (void)prepareForCollectionViewUpdates:(NSArray *)updateItems
 {

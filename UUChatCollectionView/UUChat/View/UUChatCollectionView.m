@@ -25,6 +25,7 @@
 
 - (void)configUI{
     
+    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     self.backgroundColor      = [UIColor whiteColor];
     self.keyboardDismissMode  = UIScrollViewKeyboardDismissModeNone;
     self.alwaysBounceVertical = YES;
@@ -37,9 +38,9 @@
     
 }
 
-- (void)updateConstraint{
+- (void)updateConstraints{
     
-    
+    [super updateConstraints];
 }
 
 #pragma mark - Delegate

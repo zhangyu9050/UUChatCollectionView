@@ -10,7 +10,7 @@
 #import "Chat-Macros.h"
 #import "Chat-Import.h"
 
-@interface UUChatToolBarView()
+@interface UUChatToolBarView() < UITextViewDelegate >
 
 @property (nonatomic, strong, getter = getButtonMicroPhone) UIButton *btnMicroPhone;
 @property (nonatomic, strong, getter = getTextMessageView) UITextView *txtMessage;
@@ -68,7 +68,20 @@
     }];
 }
 
-#pragma mark - Delegate
+#pragma mark - UITextView Delegate
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if ([text isEqualToString:@"\n"]) {
+        
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
+//    self.inputPlaceholder.hidden = text.length || range.location > 0;
+    
+    return YES;
+}
 
 #pragma mark - Custom Deledate
 
@@ -110,8 +123,10 @@
     if (!_txtMessage) {
         
         _txtMessage = [[UITextView alloc] init];
+        _txtMessage.delegate = self;
         _txtMessage.layer.cornerRadius = 6;
         _txtMessage.layer.masksToBounds = YES;
+        _txtMessage.font = [UIFont systemFontOfSize:16];
     }
     
     return _txtMessage;

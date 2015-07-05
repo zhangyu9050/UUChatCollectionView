@@ -26,7 +26,14 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 
+    
     [self subscribeToKeyboard];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self scrollToBottomAnimated:NO];
+//        [self.collectionView.collectionViewLayout invalidateLayoutWithContext:[UUChatCollectionViewFlowLayoutInvalidationContext context]];
+    });
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -40,7 +47,7 @@
     
     [self configUI];
     [self updateConstraint];
-
+    [self createDataSoure];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,14 +64,45 @@
     [self.view addSubview:self.collectionView];
     [self.view addSubview:self.toolbarView];
     
-    [self createDataSoure];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"1"
+                                                                              style:UIBarButtonItemStyleBordered
+                                                                             target:self
+                                                                             action:@selector(receiveMessagePressed:)];
+
+
+}
+
+- (void)receiveMessagePressed:(id)sender{
+
+//    [self scrollToBottomAnimated:NO];
+    
+//    [_collectionView setNeedsUpdateConstraints];
+//    [_collectionView updateConstraintsIfNeeded];
+//    
+//    [_collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
+//        
+//        
+//        make.top.equalTo(self.view).offset(-256);
+//    }];
+    
+    CGRect frame = _collectionView.frame;
+    frame.origin.y = -256;
+    [UIView animateWithDuration:10 animations:^{
+       
+        _collectionView.frame = frame;
+//        [_collectionView layoutIfNeeded];
+    }];
+
 }
 
 - (void)updateConstraint{
     
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 50, 0));
+//        make.height.mas_equalTo(ScreenHeight -64 -50);
+        make.left.and.right.and.top.equalTo(self.view);
+//        make.bottom.equalTo(self.view).offset(-50);
+        make.bottom.equalTo(_toolbarView.mas_top);
     }];
     
     [_toolbarView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -106,6 +144,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UUChatCollectionViewFlowLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
+//    return CGSizeMake(ScreenWidth, 200);
     return [collectionViewLayout sizeForItemAtIndexPath:indexPath message:_messageArray[indexPath.row]];
 }
 
@@ -135,33 +174,66 @@
 
 #pragma mark - Private Methods
 
+- (void)scrollToBottomAnimated:(BOOL)animated
+{
+    if ([_collectionView numberOfSections] == 0) return;
+    
+    NSInteger items = [self.collectionView numberOfItemsInSection:0];
+    
+    if (items == 0) return;
+    
+    CGFloat collectionViewContentHeight = [_collectionView.collectionViewLayout collectionViewContentSize].height;
+    BOOL isContentTooSmall = (collectionViewContentHeight < CGRectGetHeight(_collectionView.bounds));
+    
+    if (isContentTooSmall) {
+
+        [_collectionView scrollRectToVisible:CGRectMake(0.0, collectionViewContentHeight - 1.0f, 1.0f, 1.0f)
+                                        animated:animated];
+        return;
+    }
+
+    NSUInteger finalRow = MAX(0, [_collectionView numberOfItemsInSection:0] - 1);
+    NSIndexPath *finalIndexPath = [NSIndexPath indexPathForItem:finalRow inSection:0];
+
+    [_collectionView scrollToItemAtIndexPath:finalIndexPath
+                                atScrollPosition:UICollectionViewScrollPositionBottom
+                                        animated:animated];
+}
+
 - (void)subscribeToKeyboard {
     
+    __weak UUChatViewController *weakSelf = self;
     [self subscribeKeyboardWithAnimations:^(CGRect keyboardRect, NSTimeInterval duration, BOOL isShowing) {
-    
-        if (CGRectIsNull(keyboardRect)) {
-            return;
-        }
+
+        if (CGRectIsNull(keyboardRect)) return;
+        
         
         __block CGFloat offsetHeight = 0;
-        [_toolbarView setNeedsUpdateConstraints];
-        [_toolbarView updateConstraintsIfNeeded];
+        offsetHeight = isShowing ? -CGRectGetHeight(keyboardRect) : 0;
         
-        if (isShowing) {
-            
-            offsetHeight = -CGRectGetHeight(keyboardRect);
-
-        }else offsetHeight = 0;
+        [weakSelf scrollToBottomAnimated:NO];
+        [_collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
+           
+            make.top.equalTo(self.view).offset(offsetHeight);
+        }];
         
         [_toolbarView mas_updateConstraints:^(MASConstraintMaker *make) {
             
             make.bottom.equalTo(self.view).offset(offsetHeight);
         }];
-    
-        [UIView animateWithDuration:duration animations:^{
-            
+        
+//        CGRect frame = _collectionView.frame;
+//        frame.origin.y = offsetHeight -50;
+//        _collectionView.frame = frame;
+        
+        [_collectionView setNeedsUpdateConstraints];
+        [_collectionView updateConstraintsIfNeeded];
+
+//        [UIView animateWithDuration:duration animations:^{
+        
+            [_collectionView layoutIfNeeded];
             [_toolbarView layoutIfNeeded];
-        }];
+//        }];
         
     } completion:nil];
 }
@@ -169,10 +241,10 @@
 
 - (void)createDataSoure{
 
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 6; i++) {
         
         UUChatMessage *message = [[UUChatMessage alloc] init];
-        message.timestamp = @"20150705";
+        message.timestamp = @"2015-09";
         message.userName = @"zhangyu";
         message.userAvatar = @"userAvatarIncoming";
         
@@ -181,16 +253,16 @@
                 message.message = @"IPv4地址即将告罄 美国已摇号限购 仅非洲能按需申请";
                 break;
             case 1:
-                message.message = @"现在负责给美国，加拿大，北大西洋地区，和加勒比群岛区域的ARIN也宣称新IP申请将需要排队等候。只剩下非洲那边还能按需申请IPv4地址了";
+                message.message = @"现在负责给美国，加拿大，北大西洋地区";
                 break;
             case 2:
-                message.message = @"农产品O2O销售平台开通仪式现场 新华网四川频道7月5日电（刘晴 李杰）“从前吃崇州...";
+                message.message = @"农产品O2O销售平台开通仪式现场";
                 break;
             case 3:
-                message.message = @"中新社北京7月5日电 (记者 彭大伟)“不好意思，我们这几天实在太忙了。”穿行在堆积如山、等待封装发出的包裹海洋中，郑志伟不时停...";
+                message.message = @"中新社北京7月5日电 (记者 彭大伟)“不好意思，我们这几天实在太忙了。";
                 break;
             case 4:
-                message.message = @"秦楚网讯 特约记者 杨洪霞 通讯员 王文勤 报道： “看到佩戴党徽的党员干部为我们发展电子商务做了很多好事，我也希望自己成为一...";
+                message.message = @"秦楚网讯 特约记者 杨洪霞 通讯员 王文勤 报道";
                 break;
             case 5:
                 message.message = @"中新网7月4日电 近年来";
@@ -232,11 +304,6 @@
         _collectionView = [[UUChatCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
-        //        _collectionView.backgroundColor = COLOR_WITH_RGB(235,235,235,1);
-        
-        //        [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kCBWarningHeaderIdentifier];
-        //
-        //        [_collectionView registerClass:[CBWarningCollectionCell class] forCellWithReuseIdentifier:kCBWarningCollectionCell];
     }
     
     return _collectionView;

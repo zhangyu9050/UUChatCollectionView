@@ -25,6 +25,7 @@
 //Layout
 #import "UUChatCollectionViewFlowLayout.h"
 #import "UUChatCollectionViewLayoutAttributes.h"
+#import "UUChatCollectionViewFlowLayoutInvalidationContext.h"
 
 //Model
 #import "UUChatMessage.h"

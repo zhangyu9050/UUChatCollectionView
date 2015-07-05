@@ -82,7 +82,7 @@ static void *UUAnimationsCompletionBlockAssociationKey = &UUAnimationsCompletion
     UUCompletionKeyboardAnimations completionBlock = objc_getAssociatedObject(self, UUAnimationsCompletionBlockAssociationKey);
     
     if (beforeAnimationsBlock) beforeAnimationsBlock(keyboardRect, duration, isShowing);
-    
+
     [UIView animateWithDuration:duration
                           delay:0
                         options:UIViewAnimationOptionBeginFromCurrentState
