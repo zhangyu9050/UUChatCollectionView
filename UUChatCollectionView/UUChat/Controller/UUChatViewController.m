@@ -178,7 +178,6 @@
     if ([text isEqualToString:@"\n"]) {
         
         [self sendMessageWithContent:textView.text];
-        [textView resignFirstResponder];
         textView.text = @"";
         
         return NO;
@@ -197,6 +196,7 @@
 
 - (void)sendMessageWithContent:(NSString *)message{
 
+    if (message.length == 0) return;
     UUChatMessage *model = [[UUChatMessage alloc] init];
     model.timestamp = [self sendTimeString];
     model.userName = @"zhang";

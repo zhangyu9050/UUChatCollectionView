@@ -37,7 +37,7 @@
     [super prepareForReuse];
     
     _imgUserAvatar.image = nil;
-//    _imgBubble.image = nil;
+    _imgBubble.image = nil;
 }
 
 #pragma mark - life cycle

@@ -114,6 +114,11 @@
     self.imgUserAvatar.image = [UIImage imageNamed:obj.userAvatar];
     
     self.lblMessage.text = obj.message;
+    
+    UIImage* img=[UIImage imageNamed:@"bg_bubble_m_nor"];//原图
+    UIEdgeInsets edge=UIEdgeInsetsMake(15, 10, 15 ,15);
+    
+    self.imgBubble.image= [img resizableImageWithCapInsets:edge resizingMode:UIImageResizingModeStretch];
 }
 
 #pragma mark - Private Methods
