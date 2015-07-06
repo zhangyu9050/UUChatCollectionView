@@ -41,7 +41,7 @@
 
     [_lblTimestamp mas_makeConstraints:^(MASConstraintMaker *make) {
        
-        make.edges.equalTo(self).with.insets(UIEdgeInsetsMake(0, 5, 0, 5)).priorityHigh();
+        make.edges.equalTo(self).with.insets(UIEdgeInsetsMake(0, 0, 0, 0)).priorityHigh();
     }];
 }
 

@@ -111,11 +111,11 @@
     
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:[UUChatCollectionViewCellOutgoing cellReuseIdentifier] forIndexPath:indexPath];
     }else{
-    
+
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:[UUChatCollectionViewCellIncoming cellReuseIdentifier] forIndexPath:indexPath];
     }
 
-    [cell setContentWithObject:_messageArray[indexPath.row]];
+    [cell setContentWithObject:_messageArray[indexPath.row] indexPath:indexPath.row];
     
     [cell setNeedsUpdateConstraints];
     [cell updateConstraintsIfNeeded];

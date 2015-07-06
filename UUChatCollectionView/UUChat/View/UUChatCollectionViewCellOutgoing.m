@@ -10,6 +10,13 @@
 #import "Chat-Import.h"
 #import "Chat-Macros.h"
 
+@interface UUChatCollectionViewCellOutgoing(){
+
+    CGFloat Offset;
+}
+
+@end
+
 @implementation UUChatCollectionViewCellOutgoing
 
 - (instancetype)init{
@@ -60,7 +67,7 @@
         [self.timeStampView mas_makeConstraints:^(MASConstraintMaker *make) {
             
             make.height.mas_lessThanOrEqualTo(@20);
-            make.top.equalTo(self.contentView).offset(15);
+            make.top.equalTo(self.contentView);
             make.centerX.equalTo(self.contentView);
         }];
         
@@ -73,7 +80,7 @@
         
         [self.lblUserName mas_makeConstraints:^(MASConstraintMaker *make) {
             
-//            make.height.mas_equalTo(@25);
+//            make.height.mas_equalTo(@20);
             make.width.mas_equalTo([UUChatCollectionViewCell maxBubboleWidth]);
             make.top.equalTo(self.imgUserAvatar);
             make.right.equalTo(self.imgUserAvatar.mas_left).offset(-10);
@@ -82,7 +89,6 @@
         
         [self.imgBubble mas_makeConstraints:^(MASConstraintMaker *make) {
             
-            //            make.width.mas_equalTo([CBChatCollectionCell maxBubboleWidth]);
             make.top.equalTo(self.lblUserName.mas_bottom).offset(0);
             make.right.equalTo(self.imgUserAvatar.mas_left).offset(-5);
             make.bottom.equalTo(self.contentView.mas_bottom).offset(0);
@@ -96,6 +102,11 @@
         self.didSetupConstraints = YES;
     }
     
+    [self.timeStampView mas_updateConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(self.contentView).offset(Offset);
+    }];
+    
     [super updateConstraints];
 }
 
@@ -107,9 +118,20 @@
 
 #pragma mark - Public Methods
 
-- (void)setContentWithObject:(UUChatMessage *)obj{
+- (void)setContentWithObject:(UUChatMessage *)obj indexPath:(NSInteger )index{
     
-    [self.timeStampView setContent:obj.timestamp];
+    if (index % 5 == 0) {
+    
+        [self.timeStampView setContent:obj.timestamp];
+        Offset = kTimeStempOffsetTop;
+        
+    }else{
+    
+        [self.timeStampView setContent:@""];
+        Offset = 0;
+    }
+    
+    
     self.lblUserName.text = obj.userName;
     self.imgUserAvatar.image = [UIImage imageNamed:obj.userAvatar];
     

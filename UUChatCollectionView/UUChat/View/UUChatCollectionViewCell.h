@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #define kUserAvatarSize CGSizeMake(40,40)
+#define kTimeStempOffsetTop  35
 
 @class UUChatMessage, UUChatTimeStampView;
 @interface UUChatCollectionViewCell : UICollectionViewCell
@@ -21,8 +22,10 @@
 
 @property (nonatomic, assign) BOOL didSetupConstraints;
 
+@property (nonatomic, assign) UIEdgeInsets timeStampInsets;
+
 - (void)configUI;
-- (void)setContentWithObject:(UUChatMessage *)obj;
+- (void)setContentWithObject:(UUChatMessage *)obj indexPath:(NSInteger )index;
 
 + (NSString *)cellReuseIdentifier;
 + (CGFloat)maxBubboleWidth;

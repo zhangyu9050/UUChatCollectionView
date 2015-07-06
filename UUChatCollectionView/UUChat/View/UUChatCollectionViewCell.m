@@ -36,6 +36,7 @@
 
     [super prepareForReuse];
     
+    [self.timeStampView setContent:@""];
     _imgUserAvatar.image = nil;
     _imgBubble.image = nil;
 }
@@ -57,6 +58,8 @@
 //    self.contentView.layer.borderWidth = 2;
 }
 
+
+
 #pragma mark - Delegate
 
 #pragma mark - Custom Deledate
@@ -65,7 +68,7 @@
 
 #pragma mark - Public Methods
 
-- (void)setContentWithObject:(UUChatMessage *)obj{
+- (void)setContentWithObject:(UUChatMessage *)obj indexPath:(NSInteger )index{
 
 }
 
@@ -126,6 +129,7 @@
     
     return _timeStampView;
 }
+
 
 - (UILabel *)getLabelUserName{
     

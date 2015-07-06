@@ -159,7 +159,7 @@
                                                       attributes:@{ NSFontAttributeName : _messageFont }
                                                          context:nil];
     
-    finalSize.height += messageItem.timestamp.length == 0 ? 0 : 20;
+    finalSize.height += indexPath.row % 5 == 0 ? 20 : 0;
     finalSize.height += 20;
     finalSize.height += stringRect.size.height;
     
@@ -173,7 +173,7 @@
     UUChatCollectionViewLayoutAttributes *attributes = (UUChatCollectionViewLayoutAttributes *)[self layoutAttributesForItemAtIndexPath:indexPath];
     
     CGFloat finalHeight = messageBubbleSize.height;
-    finalHeight += attributes.cellTimeStampHeight;
+    finalHeight += indexPath.row % 5 == 0 ? attributes.cellTimeStampHeight : 0;
     finalHeight += attributes.cellUserNameHeight;
     finalHeight += attributes.messageBubbleInsets.top;
     finalHeight += attributes.messageFrameInsets.top + attributes.messageFrameInsets.bottom;
@@ -202,7 +202,7 @@
     
     layoutAttributes.cellUserNameHeight = 10;
     
-    layoutAttributes.cellTimeStampHeight = 15;
+    layoutAttributes.cellTimeStampHeight = 35;
     
 }
 @end
