@@ -303,6 +303,7 @@
         _collectionView = [[UUChatCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
+
     }
     
     return _collectionView;
