@@ -59,24 +59,24 @@
     _messageBubbleMaxWidth = ScreenWidth -140;
 }
 
-//- (void)invalidateLayoutWithContext:(UICollectionViewFlowLayoutInvalidationContext *)context
-//{
-//    if (context.invalidateDataSourceCounts) {
-//        context.invalidateFlowLayoutAttributes = YES;
-//        context.invalidateFlowLayoutDelegateMetrics = YES;
+- (void)invalidateLayoutWithContext:(UICollectionViewFlowLayoutInvalidationContext *)context
+{
+    if (context.invalidateDataSourceCounts) {
+        context.invalidateFlowLayoutAttributes = YES;
+        context.invalidateFlowLayoutDelegateMetrics = YES;
+    }
+    
+//    if (context.invalidateFlowLayoutAttributes
+//        || context.invalidateFlowLayoutDelegateMetrics) {
+//        [self jsq_resetDynamicAnimator];
 //    }
 //    
-////    if (context.invalidateFlowLayoutAttributes
-////        || context.invalidateFlowLayoutDelegateMetrics) {
-////        [self jsq_resetDynamicAnimator];
-////    }
-////    
-////    if (context.invalidateFlowLayoutMessagesCache) {
-////        [self jsq_resetLayout];
-////    }
-//    
-//    [super invalidateLayoutWithContext:context];
-//}
+//    if (context.invalidateFlowLayoutMessagesCache) {
+//        [self jsq_resetLayout];
+//    }
+    
+    [super invalidateLayoutWithContext:context];
+}
 
 
 - (void)prepareLayout{
@@ -150,7 +150,6 @@
 
 - (CGSize )messageBubbleSizeForItemAtIndexPath:(NSIndexPath *)indexPath{
 
-    
     UUChatMessage *messageItem = [self.collectionView.dataSource collectionView:self.collectionView messageDataForItemAtIndexPath:indexPath];
     
     CGSize finalSize = CGSizeZero;
@@ -159,7 +158,8 @@
                                                          options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
                                                       attributes:@{ NSFontAttributeName : _messageFont }
                                                          context:nil];
-    finalSize.height += 20;
+    
+    finalSize.height += messageItem.timestamp.length == 0 ? 0 : 20;
     finalSize.height += 20;
     finalSize.height += stringRect.size.height;
     
@@ -185,8 +185,8 @@
 - (void)configureMessageCellLayoutAttributes:(UUChatCollectionViewLayoutAttributes *)layoutAttributes{
 
 //    NSIndexPath *indexPath = layoutAttributes.indexPath;
-    
-//    CGSize messageBubbleSize = [self messageBubbleSizeForItemAtIndexPath:indexPath];
+//
+//    UUChatMessage *messageItem = [self.collectionView.dataSource collectionView:self.collectionView messageDataForItemAtIndexPath:indexPath];
     
     layoutAttributes.messageBubbleMaxWidth = _messageBubbleMaxWidth;
     

@@ -88,8 +88,12 @@
     if (!_imgUserAvatar) {
         
         _imgUserAvatar = [[UIImageView alloc] init];
-        _imgUserAvatar.layer.cornerRadius = 44 /2 +1;
+        _imgUserAvatar.layer.cornerRadius = 40 /2;
         _imgUserAvatar.layer.masksToBounds = YES;
+        
+//        _imgUserAvatar.layer.borderColor = [UIColor blueColor].CGColor;
+//        _imgUserAvatar.layer.borderWidth = 2;
+
         
     }
     
@@ -115,6 +119,9 @@
     if (!_timeStampView) {
         
         _timeStampView = [[UUChatTimeStampView alloc] init];
+        
+//        _timeStampView.layer.borderColor = [UIColor blueColor].CGColor;
+//        _timeStampView.layer.borderWidth = 2;
     }
     
     return _timeStampView;

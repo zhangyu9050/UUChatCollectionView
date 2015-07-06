@@ -11,6 +11,8 @@
 
 @implementation UUChatCollectionView
 
+@dynamic dataSource;
+
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout{
     
     if (self = [super initWithFrame:frame collectionViewLayout:layout]) {
@@ -37,10 +39,6 @@
     
 }
 
-- (void)updateConstraints{
-    
-    [super updateConstraints];
-}
 
 #pragma mark - Delegate
 

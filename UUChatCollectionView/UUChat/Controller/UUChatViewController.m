@@ -28,12 +28,12 @@
 
     
     [self subscribeToKeyboard];
-    [self.view layoutIfNeeded];
-    [self.collectionView.collectionViewLayout invalidateLayout];
+//    [self.view layoutIfNeeded];
+//    [self.collectionView.collectionViewLayout invalidateLayout];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self scrollToBottomAnimated:NO];
-        [self.collectionView.collectionViewLayout invalidateLayoutWithContext:[UUChatCollectionViewFlowLayoutInvalidationContext context]];
+//        [self.collectionView.collectionViewLayout invalidateLayoutWithContext:[UUChatCollectionViewFlowLayoutInvalidationContext context]];
     });
 
 }
@@ -49,7 +49,7 @@
     
     [self configUI];
     [self updateConstraint];
-    [self createDataSoure];
+//    [self createDataSoure];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,13 +107,13 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     UUChatCollectionViewCell *cell;
-//    if (indexPath.row % 2 == 0) {
+    if (indexPath.row % 2 == 0) {
     
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:[UUChatCollectionViewCellOutgoing cellReuseIdentifier] forIndexPath:indexPath];
-//    }else{
-//    
-//        cell = [collectionView dequeueReusableCellWithReuseIdentifier:[UUChatCollectionViewCellIncoming cellReuseIdentifier] forIndexPath:indexPath];
-//    }
+    }else{
+    
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:[UUChatCollectionViewCellIncoming cellReuseIdentifier] forIndexPath:indexPath];
+    }
 
     [cell setContentWithObject:_messageArray[indexPath.row]];
     
@@ -123,11 +123,34 @@
     return cell;
 };
 
+#pragma mark - UICollectionView Delegate
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+//    //  disable menu for media messages
+//    id<JSQMessageData> messageItem = [collectionView.dataSource collectionView:collectionView messageDataForItemAtIndexPath:indexPath];
+//    if ([messageItem isMediaMessage]) {
+//        return NO;
+//    }
+//    
+//    self.selectedIndexPathForMenu = indexPath;
+//    
+//    //  textviews are selectable to allow data detectors
+//    //  however, this allows the 'copy, define, select' UIMenuController to show
+//    //  which conflicts with the collection view's UIMenuController
+//    //  temporarily disable 'selectable' to prevent this issue
+//    UUChatCollectionViewCell *selectedCell = (UUChatCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+//    selectedCell.textView.selectable = NO;
+    
+    return YES;
+}
+
+
 #pragma mark - UICollectionView Delegate FlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UUChatCollectionViewFlowLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-//    return CGSizeMake(ScreenWidth, 100);
+//    return CGSizeMake(ScreenWidth -20, 200);
     return [collectionViewLayout sizeForItemAtIndexPath:indexPath];
 }
 
@@ -163,7 +186,7 @@
     
     [_messageArray addObject:model];
     
-    [_collectionView reloadData];
+    [self finishSendingMessage];
 }
 
 #pragma mark - Public Methods
@@ -176,6 +199,28 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     return [dateFormatter stringFromDate:[NSDate date]];
 }
+
+- (void)finishSendingMessage{
+    
+    [self finishSendingMessageAnimated:YES];
+}
+
+- (void)finishSendingMessageAnimated:(BOOL)animated {
+    
+//    UITextView *textView = self.inputToolbar.contentView.textView;
+//    textView.text = nil;
+//    [textView.undoManager removeAllActions];
+//    
+//    [self.inputToolbar toggleSendButtonEnabled];
+//    
+//    [[NSNotificationCenter defaultCenter] postNotificationName:UITextViewTextDidChangeNotification object:textView];
+//    
+//    [self.collectionView.collectionViewLayout invalidateLayoutWithContext:[JSQMessagesCollectionViewFlowLayoutInvalidationContext context]];
+    [_collectionView reloadData];
+    
+    [self scrollToBottomAnimated:animated];
+}
+
 
 - (void)scrollToBottomAnimated:(BOOL)animated
 {
@@ -233,7 +278,7 @@
 
 - (void)createDataSoure{
 
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < 1; i++) {
         
         UUChatMessage *message = [[UUChatMessage alloc] init];
         message.timestamp = [self sendTimeString];
@@ -280,7 +325,7 @@
         [_messageArray addObject:message];
     }
     
-    [_collectionView reloadData];
+//    [_collectionView reloadData];
 }
 
 #pragma mark - Getters And Setters
@@ -289,7 +334,7 @@
     
     if (!_collectionView) {
         
-        _messageArray = [NSMutableArray array];
+        _messageArray = [[NSMutableArray alloc] init];
         
         UUChatCollectionViewFlowLayout *flowLayout= [[UUChatCollectionViewFlowLayout alloc] init];
         

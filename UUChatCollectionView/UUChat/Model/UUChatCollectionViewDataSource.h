@@ -14,4 +14,5 @@
 
 - (UUChatMessage *)collectionView:(UUChatCollectionView *)collectionView messageDataForItemAtIndexPath:(NSIndexPath *)indexPath;
 
+
 @end
