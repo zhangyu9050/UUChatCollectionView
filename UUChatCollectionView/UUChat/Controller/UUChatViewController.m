@@ -12,7 +12,8 @@
 
 @interface UUChatViewController() < UUChatCollectionViewDataSource,
                                     UICollectionViewDelegate,
-                                    UICollectionViewDelegateFlowLayout >
+                                    UICollectionViewDelegateFlowLayout,
+                                    UITextViewDelegate >
 
 
 @property (nonatomic, strong, getter = getCollectionView) UUChatCollectionView *collectionView;
@@ -49,7 +50,7 @@
     
     [self configUI];
     [self updateConstraint];
-//    [self createDataSoure];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,10 +67,10 @@
     [self.view addSubview:self.collectionView];
     [self.view addSubview:self.toolbarView];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Message"
-                                                                              style:UIBarButtonItemStyleBordered
-                                                                             target:self
-                                                                             action:@selector(receiveMessagePressed:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Message"
+//                                                                              style:UIBarButtonItemStyleBordered
+//                                                                             target:self
+//                                                                             action:@selector(receiveMessagePressed:)];
 
 
 }
@@ -78,15 +79,14 @@
     
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-//        make.height.mas_equalTo(ScreenHeight -64 -50);
+        make.height.mas_lessThanOrEqualTo(ScreenHeight -50).priorityLow();
         make.left.and.right.and.top.equalTo(self.view);
-//        make.bottom.equalTo(self.view).offset(-50);
         make.bottom.equalTo(_toolbarView.mas_top);
     }];
     
     [_toolbarView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.height.mas_equalTo(@50);
+//        make.height.mas_equalTo(@50);
         make.left.and.right.and.bottom.equalTo(self.view);
     }];
 }
@@ -150,7 +150,6 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UUChatCollectionViewFlowLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-//    return CGSizeMake(ScreenWidth -20, 200);
     return [collectionViewLayout sizeForItemAtIndexPath:indexPath];
 }
 
@@ -172,26 +171,42 @@
     return 0.0f;
 }
 
+#pragma mark - UITextView Delegate
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if ([text isEqualToString:@"\n"]) {
+        
+        [self sendMessageWithContent:textView.text];
+        [textView resignFirstResponder];
+        textView.text = @"";
+        
+        return NO;
+    }
+
+    return YES;
+}
+
 #pragma mark - Custom Deledate
 
 #pragma mark - Event Response
 
-- (void)receiveMessagePressed:(id)sender{
+#pragma mark - Public Methods
+
+#pragma mark - Private Methods
+
+- (void)sendMessageWithContent:(NSString *)message{
 
     UUChatMessage *model = [[UUChatMessage alloc] init];
     model.timestamp = [self sendTimeString];
     model.userName = @"zhang";
     model.userAvatar = @"userAvatarIncoming";
-    model.message = @"IPv4地址即将告罄 美国已摇号限购 仅非洲能按需申请";
+    model.message = message;
     
     [_messageArray addObject:model];
     
     [self finishSendingMessage];
 }
-
-#pragma mark - Public Methods
-
-#pragma mark - Private Methods
 
 - (NSString *)sendTimeString{
 
@@ -275,59 +290,6 @@
     } completion:nil];
 }
 
-
-- (void)createDataSoure{
-
-    for (int i = 0; i < 1; i++) {
-        
-        UUChatMessage *message = [[UUChatMessage alloc] init];
-        message.timestamp = [self sendTimeString];
-        message.userName = @"zhangyu";
-        message.userAvatar = @"userAvatarIncoming";
-        
-        switch (i) {
-            case 0:
-                message.message = @"IPv4地址即将告罄 美国已摇号限购 仅非洲能按需申请";
-                break;
-            case 1:
-                message.message = @"现在负责给美国，加拿大，北大西洋地区";
-                break;
-            case 2:
-                message.message = @"农产品O2O销售平台开通仪式现场";
-                break;
-            case 3:
-                message.message = @"中新社北京7月5日电 (记者 彭大伟)“不好意思，我们这几天实在太忙了。";
-                break;
-            case 4:
-                message.message = @"秦楚网讯 特约记者 杨洪霞 通讯员 王文勤 报道";
-                break;
-            case 5:
-                message.message = @"中新网7月4日电 近年来";
-                break;
-            case 6:
-                message.message = @"如何看小米最新公布的3470万台销量";
-                break;
-            case 7:
-                message.message = @"However, when we rotate from portrait to landscape we get the following complaint";
-                break;
-            case 8:
-                message.message = @"However, when we rotate from portrait to landscape we get the following complaint";
-                break;
-            case 9:
-                message.message = @"However, when we rotate from portrait to landscape we get the following complaint";
-                break;
-                
-            default:
-                message.message = @"However, when we rotate from portrait to landscape we get the following complaint";
-                break;
-        }
-        
-        [_messageArray addObject:message];
-    }
-    
-//    [_collectionView reloadData];
-}
-
 #pragma mark - Getters And Setters
 
 - (UUChatCollectionView *)getCollectionView{
@@ -351,6 +313,7 @@
     if (!_toolbarView) {
         
         _toolbarView = [[UUChatToolBarView alloc] init];
+        _toolbarView.txtMessage.delegate = self;
     }
     
     return _toolbarView;

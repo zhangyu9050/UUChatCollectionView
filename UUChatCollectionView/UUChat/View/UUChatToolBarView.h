@@ -10,4 +10,6 @@
 
 @interface UUChatToolBarView : UIView
 
+@property (nonatomic, strong, getter = getTextMessageView) UITextView *txtMessage;
+
 @end

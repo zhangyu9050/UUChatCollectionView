@@ -10,10 +10,9 @@
 #import "Chat-Macros.h"
 #import "Chat-Import.h"
 
-@interface UUChatToolBarView() < UITextViewDelegate >
+@interface UUChatToolBarView()
 
 @property (nonatomic, strong, getter = getButtonMicroPhone) UIButton *btnMicroPhone;
-@property (nonatomic, strong, getter = getTextMessageView) UITextView *txtMessage;
 @property (nonatomic, strong, getter = getButtonAdd) UIButton *btnAdd;
 
 @end
@@ -68,19 +67,27 @@
     }];
 }
 
-#pragma mark - UITextView Delegate
+- (void)dealloc{
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    [_txtMessage removeObserver:self forKeyPath:@"contentSize"];
+}
+
+#pragma mark - Observe KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     
-    if ([text isEqualToString:@"\n"]) {
+    if (object == _txtMessage) {
+
+        __block CGFloat offsetHeight = _txtMessage.contentSize.height;
+//        if (offsetHeight < 74)
+            [self updateMessageOffsetHeight:offsetHeight];
         
-        [textView resignFirstResponder];
-        return NO;
+        CGFloat topCorrect = (_txtMessage.frame.size.height - _txtMessage.contentSize.height);
+        topCorrect = (topCorrect <0.0 ?0.0 : topCorrect);
+        _txtMessage.contentOffset = (CGPoint){.x =0, .y = -topCorrect/2};
+
     }
     
-//    self.inputPlaceholder.hidden = text.length || range.location > 0;
-    
-    return YES;
 }
 
 #pragma mark - Custom Deledate
@@ -90,6 +97,17 @@
 #pragma mark - Public Methods
 
 #pragma mark - Private Methods
+
+- (void)updateMessageOffsetHeight:(CGFloat)offsetHeight{
+
+    [_txtMessage mas_updateConstraints:^(MASConstraintMaker *make) {
+        
+        make.height.mas_equalTo(offsetHeight).priorityHigh();
+    }];
+    
+    [_txtMessage setNeedsUpdateConstraints];
+    [_txtMessage layoutIfNeeded];
+}
 
 #pragma mark - Getters And Setters
 
@@ -123,10 +141,16 @@
     if (!_txtMessage) {
         
         _txtMessage = [[UITextView alloc] init];
-        _txtMessage.delegate = self;
         _txtMessage.layer.cornerRadius = 6;
         _txtMessage.layer.masksToBounds = YES;
         _txtMessage.font = [UIFont systemFontOfSize:16];
+
+        _txtMessage.scrollsToTop = NO;
+        _txtMessage.userInteractionEnabled = YES;
+        _txtMessage.contentMode = UIViewContentModeRedraw;
+        _txtMessage.returnKeyType = UIReturnKeySend;
+        
+        [_txtMessage addObserver:self forKeyPath:@"contentSize"options:NSKeyValueObservingOptionNew context:nil];
     }
     
     return _txtMessage;
