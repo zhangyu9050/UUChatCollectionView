@@ -20,4 +20,7 @@
 
 @property (nonatomic, strong) NSString *message;
 
+
+- (instancetype)initWithSendMessage:(NSString *)message;
+
 @end

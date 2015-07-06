@@ -10,4 +10,26 @@
 
 @implementation UUChatMessage
 
+- (instancetype)initWithSendMessage:(NSString *)message{
+
+    if (self = [super init]) {
+        
+        self.timestamp = [self sendTimeString];
+        self.userName = @"zhang";
+        self.userAvatar = @"userAvatarIncoming";
+        self.message = message;
+    }
+    
+    return self;
+}
+
+
+- (NSString *)sendTimeString{
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    return [dateFormatter stringFromDate:[NSDate date]];
+}
+
+
 @end

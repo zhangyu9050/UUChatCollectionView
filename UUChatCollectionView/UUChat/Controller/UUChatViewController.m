@@ -197,23 +197,12 @@
 - (void)sendMessageWithContent:(NSString *)message{
 
     if (message.length == 0) return;
-    UUChatMessage *model = [[UUChatMessage alloc] init];
-    model.timestamp = [self sendTimeString];
-    model.userName = @"zhang";
-    model.userAvatar = @"userAvatarIncoming";
-    model.message = message;
-    
-    [_messageArray addObject:model];
+
+    [_messageArray addObject:[[UUChatMessage alloc] initWithSendMessage:message]];
     
     [self finishSendingMessage];
 }
 
-- (NSString *)sendTimeString{
-
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    return [dateFormatter stringFromDate:[NSDate date]];
-}
 
 - (void)finishSendingMessage{
     
@@ -257,9 +246,15 @@
 
     NSUInteger finalRow = MAX(0, [_collectionView numberOfItemsInSection:0] - 1);
     NSIndexPath *finalIndexPath = [NSIndexPath indexPathForItem:finalRow inSection:0];
+    CGSize finalCellSize = [self.collectionView.collectionViewLayout sizeForItemAtIndexPath:finalIndexPath];
+    
+    CGFloat maxHeightForVisibleMessage = CGRectGetHeight(_collectionView.bounds) - _collectionView.contentInset.top - CGRectGetHeight(_toolbarView.bounds);
+    
+    UICollectionViewScrollPosition scrollPosition = (finalCellSize.height > maxHeightForVisibleMessage) ? UICollectionViewScrollPositionBottom : UICollectionViewScrollPositionTop;
+
 
     [_collectionView scrollToItemAtIndexPath:finalIndexPath
-                                atScrollPosition:UICollectionViewScrollPositionBottom
+                                atScrollPosition:scrollPosition
                                         animated:animated];
 }
 
@@ -272,11 +267,16 @@
         
         CGFloat offsetHeight = isShowing ? -CGRectGetHeight(keyboardRect) : 0;
         
-        if (isShowing) [weakSelf scrollToBottomAnimated:NO];
-        [_collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
-           
-            make.top.equalTo(self.view).offset(offsetHeight);
-        }];
+        if (isShowing) [weakSelf scrollToBottomAnimated:YES];
+        
+        if (_collectionView.contentSize.height > CGRectGetHeight(_collectionView.frame)) {
+
+            [_collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
+                
+                make.top.equalTo(self.view).offset(offsetHeight);
+            }];
+
+        }
         
         [_toolbarView mas_updateConstraints:^(MASConstraintMaker *make) {
             
