@@ -63,6 +63,12 @@
 
 - (void)configUI{
     
+    if (OSVersionIsAtLeastiOS7) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = NO;
+        self.modalPresentationCapturesStatusBarAppearance = NO;
+    }
+    
     self.navigationItem.title = @"Chat Message";
     [self.view addSubview:self.collectionView];
     [self.view addSubview:self.toolbarView];
@@ -79,7 +85,7 @@
     
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.height.mas_lessThanOrEqualTo(ScreenHeight -50).priorityLow();
+        make.height.mas_lessThanOrEqualTo(ScreenHeight -50 -64).priorityHigh();
         make.left.and.right.and.top.equalTo(self.view);
         make.bottom.equalTo(_toolbarView.mas_top);
     }];
@@ -172,6 +178,11 @@
 }
 
 #pragma mark - UITextView Delegate
+
+- (void)textViewDidChange:(UITextView *)textView{
+
+    [self scrollToBottomAnimated:NO];
+}
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     
@@ -271,10 +282,10 @@
         
         if (_collectionView.contentSize.height > CGRectGetHeight(_collectionView.frame)) {
 
-            [_collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
-                
-                make.top.equalTo(self.view).offset(offsetHeight);
-            }];
+//            [_collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
+//                
+//                make.bottom.equalTo(self.view).offset(offsetHeight);
+//            }];
 
         }
         

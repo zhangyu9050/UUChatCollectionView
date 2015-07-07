@@ -41,13 +41,15 @@
 
     [_lblTimestamp mas_makeConstraints:^(MASConstraintMaker *make) {
        
-        make.edges.equalTo(self).with.insets(UIEdgeInsetsMake(0, 0, 0, 0)).priorityHigh();
+        make.edges.equalTo(self).with.insets(UIEdgeInsetsMake(0, 5, 0, 5)).priorityHigh();
     }];
 }
 
 - (void)setContent:(NSString *)string{
 
     _lblTimestamp.text = string;
+    
+    self.backgroundColor = string.length == 0 ? [UIColor clearColor] : COLOR_WITH_RGB(203,204,210,1);
 }
 
 - (UILabel *)getLabelTimeStamp{

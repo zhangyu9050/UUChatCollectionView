@@ -36,7 +36,8 @@
     [self registerClass:[UUChatCollectionViewCellOutgoing class] forCellWithReuseIdentifier:[UUChatCollectionViewCellOutgoing cellReuseIdentifier]];
     
     
-    
+    self.layer.borderWidth = 2;
+    self.layer.borderColor = [UIColor redColor].CGColor;
 }
 
 
