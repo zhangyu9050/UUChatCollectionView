@@ -56,7 +56,7 @@
     //    _messageInsets          = UIEdgeInsetsMake(10, 20, 10, 15);
     
     _messageFont = [UIFont systemFontOfSize:17];
-    _messageBubbleMaxWidth = ScreenWidth -140;
+    _messageBubbleMaxWidth = [UUChatCollectionViewCell maxBubboleWidth];
 }
 
 - (void)invalidateLayoutWithContext:(UICollectionViewFlowLayoutInvalidationContext *)context
@@ -155,11 +155,12 @@
     CGSize finalSize = CGSizeZero;
     
     CGRect stringRect = [messageItem.message boundingRectWithSize:CGSizeMake(_messageBubbleMaxWidth, CGFLOAT_MAX)
-                                                         options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
-                                                      attributes:@{ NSFontAttributeName : _messageFont }
-                                                         context:nil];
+                                                          options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
+                                                       attributes:@{ NSFontAttributeName : _messageFont }
+                                                          context:nil];
     
     finalSize.height += indexPath.row % 5 == 0 ? 20 : 0;
+    
     finalSize.height += 20;
     finalSize.height += stringRect.size.height;
     
@@ -175,10 +176,11 @@
     CGFloat finalHeight = messageBubbleSize.height;
     finalHeight += indexPath.row % 5 == 0 ? attributes.cellTimeStampHeight : 0;
     finalHeight += indexPath.row % 5 == 0 ? attributes.cellUserNameHeight : 10;
+    
     finalHeight += attributes.messageBubbleInsets.top;
     finalHeight += attributes.messageFrameInsets.top + attributes.messageFrameInsets.bottom;
     
-    CGFloat itemWidth = ScreenWidth -self.sectionInset.left - self.sectionInset.right;
+    CGFloat itemWidth = ScreenWidth -self.sectionInset.left -self.sectionInset.right;
     return CGSizeMake(itemWidth, ceilf(finalHeight));
 }
 
@@ -190,7 +192,7 @@
     
     layoutAttributes.messageBubbleMaxWidth = _messageBubbleMaxWidth;
     
-    layoutAttributes.messageBubbleInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+    layoutAttributes.messageBubbleInsets = UIEdgeInsetsZero;
     
     layoutAttributes.messageFrameInsets = UIEdgeInsetsMake(10, 20, 10, 15);
     
@@ -202,7 +204,7 @@
     
     layoutAttributes.cellUserNameHeight = 20;
     
-    layoutAttributes.cellTimeStampHeight = 15;
+    layoutAttributes.cellTimeStampHeight = kTimeStempOffsetTop;
     
 }
 @end

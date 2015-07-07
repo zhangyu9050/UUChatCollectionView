@@ -10,4 +10,6 @@
 
 @interface UUChatViewController : UIViewController
 
+- (void)updateCollectionViewInsets;
+
 @end

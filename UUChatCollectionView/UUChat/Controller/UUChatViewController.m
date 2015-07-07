@@ -85,14 +85,14 @@
     
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.height.mas_lessThanOrEqualTo(ScreenHeight -50 -64).priorityHigh();
+//        make.height.mas_lessThanOrEqualTo(ScreenHeight -50 -64).priorityHigh();
         make.left.and.right.and.top.equalTo(self.view);
-        make.bottom.equalTo(_toolbarView.mas_top);
+        make.bottom.equalTo(self.view).offset(-50);
     }];
     
     [_toolbarView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-//        make.height.mas_equalTo(@50);
+        make.height.mas_greaterThanOrEqualTo(@50);
         make.left.and.right.and.bottom.equalTo(self.view);
     }];
 }
@@ -179,9 +179,25 @@
 
 #pragma mark - UITextView Delegate
 
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView{
+
+    return YES;
+}
+
 - (void)textViewDidChange:(UITextView *)textView{
 
-    [self scrollToBottomAnimated:NO];
+//    [self updateCollectionViewInsets];
+//    CGFloat topCorrect = (textView.frame.size.height - textView.contentSize.height) +14;
+//    topCorrect = (topCorrect <0.0 ?0.0 : topCorrect);
+//
+//    CGFloat bottom = CGRectGetHeight(_toolbarView.frame) -50;
+//    
+//    NSLog(@"bottom >>>> %f",bottom);
+//    UIEdgeInsets insets = UIEdgeInsetsMake(0, 0.0f, bottom, 0.0f);
+//    _collectionView.contentInset = insets;
+//    _collectionView.scrollIndicatorInsets = insets;
+//    _collectionView.contentOffset = (CGPoint){.x =0, .y = -topCorrect/2};
+//    [self scrollToBottomAnimated:NO];
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
@@ -189,8 +205,6 @@
     if ([text isEqualToString:@"\n"]) {
         
         [self sendMessageWithContent:textView.text];
-        textView.text = @"";
-        
         return NO;
     }
 
@@ -222,10 +236,11 @@
 
 - (void)finishSendingMessageAnimated:(BOOL)animated {
     
-//    UITextView *textView = self.inputToolbar.contentView.textView;
-//    textView.text = nil;
+    UITextView *textView = _toolbarView.txtMessage;
+    textView.text = nil;
+    
 //    [textView.undoManager removeAllActions];
-//    
+//
 //    [self.inputToolbar toggleSendButtonEnabled];
 //    
 //    [[NSNotificationCenter defaultCenter] postNotificationName:UITextViewTextDidChangeNotification object:textView];
@@ -263,11 +278,29 @@
     
     UICollectionViewScrollPosition scrollPosition = (finalCellSize.height > maxHeightForVisibleMessage) ? UICollectionViewScrollPositionBottom : UICollectionViewScrollPositionTop;
 
-
     [_collectionView scrollToItemAtIndexPath:finalIndexPath
                                 atScrollPosition:scrollPosition
                                         animated:animated];
 }
+
+- (void)updateCollectionViewInsets
+{
+    NSLog(@"_collectionView Max >>>> %f",CGRectGetMaxY(_collectionView.frame));
+    NSLog(@"_toolbarView Min >>>> %f",CGRectGetMinY(_toolbarView.frame));
+//    [self setCollectionViewInsetsTopValue:0
+//                              bottomValue:CGRectGetMaxY(_collectionView.frame) - CGRectGetMinY(_toolbarView.frame)];
+    [self setCollectionViewInsetsTopValue:0
+                              bottomValue:CGRectGetMaxY(_collectionView.frame) - CGRectGetMinY(_toolbarView.frame)];
+}
+
+- (void)setCollectionViewInsetsTopValue:(CGFloat)top bottomValue:(CGFloat)bottom
+{
+    NSLog(@"bottom >>>> %f",bottom);
+    UIEdgeInsets insets = UIEdgeInsetsMake(top, 0.0f, bottom, 0.0f);
+    self.collectionView.contentInset = insets;
+    self.collectionView.scrollIndicatorInsets = insets;
+}
+
 
 - (void)subscribeToKeyboard {
     
@@ -280,23 +313,26 @@
         
         if (isShowing) [weakSelf scrollToBottomAnimated:YES];
         
-        if (_collectionView.contentSize.height > CGRectGetHeight(_collectionView.frame)) {
+        
+//        if (_collectionView.contentSize.height > CGRectGetHeight(_collectionView.frame)) {
 
 //            [_collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
 //                
-//                make.bottom.equalTo(self.view).offset(offsetHeight);
+//                make.bottom.equalTo(self.view).offset(offsetHeight -50);
 //            }];
 
-        }
+//        }
         
         [_toolbarView mas_updateConstraints:^(MASConstraintMaker *make) {
             
             make.bottom.equalTo(self.view).offset(offsetHeight);
         }];
         
-        [_collectionView layoutIfNeeded];
+//        [_collectionView layoutIfNeeded];
         [_toolbarView layoutIfNeeded];
         [self.view layoutIfNeeded];
+        
+        [self updateCollectionViewInsets];
         
     } completion:nil];
 }
@@ -324,7 +360,7 @@
 
     if (!_toolbarView) {
         
-        _toolbarView = [[UUChatToolBarView alloc] init];
+        _toolbarView = [[UUChatToolBarView alloc] initWithWeakSuper:self];
         _toolbarView.txtMessage.delegate = self;
     }
     

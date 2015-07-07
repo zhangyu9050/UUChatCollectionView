@@ -15,9 +15,23 @@
 @property (nonatomic, strong, getter = getButtonMicroPhone) UIButton *btnMicroPhone;
 @property (nonatomic, strong, getter = getButtonAdd) UIButton *btnAdd;
 
+@property (nonatomic, weak) UUChatViewController *weakSuper;
+
 @end
 
 @implementation UUChatToolBarView
+
+- (instancetype)initWithWeakSuper:(id)weakSuper{
+    
+    if (self = [super init]) {
+        
+        _weakSuper = weakSuper;
+        [self configUI];
+        [self updateConstraint];
+    }
+    
+    return self;
+}
 
 - (instancetype)init{
 
@@ -86,6 +100,8 @@
         topCorrect = (topCorrect <0.0 ?0.0 : topCorrect);
         _txtMessage.contentOffset = (CGPoint){.x =0, .y = -topCorrect/2};
 
+//        [_weakSuper updateCollectionViewInsets];
+//        NSLog(@"offsetHeight >>>> %f",offsetHeight);
     }
     
 }
@@ -150,7 +166,7 @@
         _txtMessage.contentMode = UIViewContentModeRedraw;
         _txtMessage.returnKeyType = UIReturnKeySend;
         
-        [_txtMessage addObserver:self forKeyPath:@"contentSize"options:NSKeyValueObservingOptionNew context:nil];
+        [_txtMessage addObserver:self forKeyPath:@"contentSize"options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
     }
     
     return _txtMessage;

@@ -78,8 +78,8 @@
         
         [self.lblUserName mas_makeConstraints:^(MASConstraintMaker *make) {
             
-//            make.height.mas_equalTo(@25);
-            make.width.mas_equalTo([UUChatCollectionViewCell maxBubboleWidth]);
+            make.height.mas_equalTo(@20).priorityHigh();
+//            make.width.mas_equalTo([UUChatCollectionViewCell maxBubboleWidth]);
             make.top.equalTo(self.imgUserAvatar);
             make.left.equalTo(self.imgUserAvatar.mas_right).offset(10);
             

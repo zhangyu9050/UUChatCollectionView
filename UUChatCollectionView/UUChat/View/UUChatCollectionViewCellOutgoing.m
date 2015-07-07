@@ -80,8 +80,8 @@
         
         [self.lblUserName mas_makeConstraints:^(MASConstraintMaker *make) {
             
-//            make.height.mas_equalTo(@20);
-            make.width.mas_equalTo([UUChatCollectionViewCell maxBubboleWidth]);
+            make.height.mas_equalTo(@20).priorityHigh();
+//            make.width.mas_equalTo([UUChatCollectionViewCell maxBubboleWidth]);
             make.top.equalTo(self.imgUserAvatar);
             make.right.equalTo(self.imgUserAvatar.mas_left).offset(-10);
             
@@ -135,7 +135,7 @@
         [self.timeStampView setContent:@""];
         Offset = 0;
     }
-    
+
     
     self.lblUserName.text = obj.userName;
     self.imgUserAvatar.image = [UIImage imageNamed:obj.userAvatar];

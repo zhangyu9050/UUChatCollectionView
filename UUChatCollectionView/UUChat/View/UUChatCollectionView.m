@@ -28,7 +28,7 @@
 - (void)configUI{
     
     self.backgroundColor      = [UIColor whiteColor];
-    self.keyboardDismissMode  = UIScrollViewKeyboardDismissModeOnDrag;
+    self.keyboardDismissMode  = UIScrollViewKeyboardDismissModeNone;
     self.alwaysBounceVertical = YES;
     self.bounces              = YES;
     
