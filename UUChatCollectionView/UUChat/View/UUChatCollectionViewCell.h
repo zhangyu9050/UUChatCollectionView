@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #define kUserAvatarSize CGSizeMake(40,40)
-#define kTimeStempOffsetTop  35
+#define kTimeStempOffsetTop  15
 
 @class UUChatMessage, UUChatTimeStampView;
 @interface UUChatCollectionViewCell : UICollectionViewCell

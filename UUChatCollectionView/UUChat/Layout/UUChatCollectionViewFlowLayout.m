@@ -200,9 +200,9 @@
     
     layoutAttributes.outgoingAvatarSize = kUserAvatarSize;
     
-    layoutAttributes.cellUserNameHeight = 30;
+    layoutAttributes.cellUserNameHeight = 20;
     
-    layoutAttributes.cellTimeStampHeight = 35;
+    layoutAttributes.cellTimeStampHeight = 15;
     
 }
 @end
