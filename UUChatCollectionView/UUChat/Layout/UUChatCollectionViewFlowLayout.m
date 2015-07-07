@@ -174,7 +174,7 @@
     
     CGFloat finalHeight = messageBubbleSize.height;
     finalHeight += indexPath.row % 5 == 0 ? attributes.cellTimeStampHeight : 0;
-    finalHeight += attributes.cellUserNameHeight;
+    finalHeight += indexPath.row % 5 == 0 ? attributes.cellUserNameHeight : 10;
     finalHeight += attributes.messageBubbleInsets.top;
     finalHeight += attributes.messageFrameInsets.top + attributes.messageFrameInsets.bottom;
     
@@ -200,7 +200,7 @@
     
     layoutAttributes.outgoingAvatarSize = kUserAvatarSize;
     
-    layoutAttributes.cellUserNameHeight = 10;
+    layoutAttributes.cellUserNameHeight = 30;
     
     layoutAttributes.cellTimeStampHeight = 35;
     

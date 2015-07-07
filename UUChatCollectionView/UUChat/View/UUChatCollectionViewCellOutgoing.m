@@ -74,7 +74,7 @@
         [self.imgUserAvatar mas_makeConstraints:^(MASConstraintMaker *make) {
             
             make.size.mas_equalTo(kUserAvatarSize);
-            make.top.equalTo(self.timeStampView.mas_bottom).offset(10);
+            make.top.equalTo(self.timeStampView.mas_bottom).offset(30);
             make.right.equalTo(self.contentView).offset(-10);
         }];
         
@@ -105,6 +105,11 @@
     [self.timeStampView mas_updateConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(self.contentView).offset(Offset);
+    }];
+    
+    [self.imgUserAvatar mas_updateConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(self.timeStampView.mas_bottom).offset(Offset == 0 ? 10 :30);
     }];
     
     [super updateConstraints];
