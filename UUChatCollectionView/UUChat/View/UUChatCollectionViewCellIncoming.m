@@ -94,7 +94,7 @@
         
         [self.lblMessage mas_makeConstraints:^(MASConstraintMaker *make) {
             
-            make.edges.equalTo(self.imgBubble).with.insets(UIEdgeInsetsMake(10, 20, 10, 15));
+            make.edges.equalTo(self.imgBubble).with.insets(self.chatMessageIncomingInsets);
         }];
         
         self.didSetupConstraints = YES;

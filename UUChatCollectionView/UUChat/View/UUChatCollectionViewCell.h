@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
 #define kUserAvatarSize CGSizeMake(40,40)
+
 #define kTimeStempOffsetTop  15
 
 @class UUChatMessage, UUChatTimeStampView;
@@ -23,6 +25,10 @@
 @property (nonatomic, assign) BOOL didSetupConstraints;
 
 @property (nonatomic, assign) UIEdgeInsets timeStampInsets;
+
+@property (nonatomic, assign) UIEdgeInsets chatMessageIncomingInsets;
+
+@property (nonatomic, assign) UIEdgeInsets chatMessageOutgoingInsets;
 
 - (void)configUI;
 - (void)setContentWithObject:(UUChatMessage *)obj indexPath:(NSInteger )index;

@@ -45,6 +45,9 @@
 
 - (void)configUI{
     
+    self.chatMessageIncomingInsets = UIEdgeInsetsMake(10, 20, 10, 15);
+    self.chatMessageOutgoingInsets = UIEdgeInsetsMake(10, 15, 10, 20);
+    
     self.contentView.backgroundColor = [UIColor whiteColor];
     
     [self.contentView addSubview:self.imgUserAvatar];
