@@ -83,28 +83,9 @@
 
 - (void)dealloc{
 
-    [_txtMessage removeObserver:self forKeyPath:@"contentSize"];
+
 }
 
-#pragma mark - Observe KVO
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-    
-    if (object == _txtMessage) {
-
-        __block CGFloat offsetHeight = _txtMessage.contentSize.height;
-//        if (offsetHeight < 74)
-            [self updateMessageOffsetHeight:offsetHeight];
-        
-        CGFloat topCorrect = (_txtMessage.frame.size.height - _txtMessage.contentSize.height);
-        topCorrect = (topCorrect <0.0 ?0.0 : topCorrect);
-        _txtMessage.contentOffset = (CGPoint){.x =0, .y = -topCorrect/2};
-
-//        [_weakSuper updateCollectionViewInsets];
-//        NSLog(@"offsetHeight >>>> %f",offsetHeight);
-    }
-    
-}
 
 #pragma mark - Custom Deledate
 
@@ -113,17 +94,6 @@
 #pragma mark - Public Methods
 
 #pragma mark - Private Methods
-
-- (void)updateMessageOffsetHeight:(CGFloat)offsetHeight{
-
-    [_txtMessage mas_updateConstraints:^(MASConstraintMaker *make) {
-        
-        make.height.mas_equalTo(offsetHeight).priorityHigh();
-    }];
-    
-    [_txtMessage setNeedsUpdateConstraints];
-    [_txtMessage layoutIfNeeded];
-}
 
 #pragma mark - Getters And Setters
 
@@ -165,8 +135,6 @@
         _txtMessage.userInteractionEnabled = YES;
         _txtMessage.contentMode = UIViewContentModeRedraw;
         _txtMessage.returnKeyType = UIReturnKeySend;
-        
-        [_txtMessage addObserver:self forKeyPath:@"contentSize"options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
     }
     
     return _txtMessage;

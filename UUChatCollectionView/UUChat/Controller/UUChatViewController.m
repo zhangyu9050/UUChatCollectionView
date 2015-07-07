@@ -58,6 +58,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc{
+
+    [_toolbarView.txtMessage removeObserver:self forKeyPath:@"contentSize"];
+}
+
 
 #pragma mark - life cycle
 
@@ -72,12 +77,6 @@
     self.navigationItem.title = @"Chat Message";
     [self.view addSubview:self.collectionView];
     [self.view addSubview:self.toolbarView];
-    
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Message"
-//                                                                              style:UIBarButtonItemStyleBordered
-//                                                                             target:self
-//                                                                             action:@selector(receiveMessagePressed:)];
-
 
 }
 
@@ -85,7 +84,6 @@
     
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-//        make.height.mas_lessThanOrEqualTo(ScreenHeight -50 -64).priorityHigh();
         make.left.and.right.and.top.equalTo(self.view);
         make.bottom.equalTo(self.view).offset(-50);
     }];
@@ -132,22 +130,7 @@
 #pragma mark - UICollectionView Delegate
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-//    //  disable menu for media messages
-//    id<JSQMessageData> messageItem = [collectionView.dataSource collectionView:collectionView messageDataForItemAtIndexPath:indexPath];
-//    if ([messageItem isMediaMessage]) {
-//        return NO;
-//    }
-//    
-//    self.selectedIndexPathForMenu = indexPath;
-//    
-//    //  textviews are selectable to allow data detectors
-//    //  however, this allows the 'copy, define, select' UIMenuController to show
-//    //  which conflicts with the collection view's UIMenuController
-//    //  temporarily disable 'selectable' to prevent this issue
-//    UUChatCollectionViewCell *selectedCell = (UUChatCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-//    selectedCell.textView.selectable = NO;
-    
+
     return YES;
 }
 
@@ -179,27 +162,6 @@
 
 #pragma mark - UITextView Delegate
 
-- (BOOL)textViewShouldEndEditing:(UITextView *)textView{
-
-    return YES;
-}
-
-- (void)textViewDidChange:(UITextView *)textView{
-
-//    [self updateCollectionViewInsets];
-//    CGFloat topCorrect = (textView.frame.size.height - textView.contentSize.height) +14;
-//    topCorrect = (topCorrect <0.0 ?0.0 : topCorrect);
-//
-//    CGFloat bottom = CGRectGetHeight(_toolbarView.frame) -50;
-//    
-//    NSLog(@"bottom >>>> %f",bottom);
-//    UIEdgeInsets insets = UIEdgeInsetsMake(0, 0.0f, bottom, 0.0f);
-//    _collectionView.contentInset = insets;
-//    _collectionView.scrollIndicatorInsets = insets;
-//    _collectionView.contentOffset = (CGPoint){.x =0, .y = -topCorrect/2};
-//    [self scrollToBottomAnimated:NO];
-}
-
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     
     if ([text isEqualToString:@"\n"]) {
@@ -211,6 +173,23 @@
     return YES;
 }
 
+#pragma mark - Observe KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    
+    if (object == _toolbarView.txtMessage) {
+        
+        UITextView *textView = _toolbarView.txtMessage;
+        [self updateMessageOffsetHeight:textView.contentSize.height];
+        
+        CGFloat topCorrect = (textView.frame.size.height - textView.contentSize.height);
+        topCorrect = topCorrect < 0 ? 0 : topCorrect;
+        
+        textView.contentOffset = CGPointMake(0, -topCorrect / 2);
+    }
+}
+
+
 #pragma mark - Custom Deledate
 
 #pragma mark - Event Response
@@ -218,6 +197,27 @@
 #pragma mark - Public Methods
 
 #pragma mark - Private Methods
+
+- (void)updateMessageOffsetHeight:(CGFloat)offsetHeight{
+    
+    [_toolbarView.txtMessage mas_updateConstraints:^(MASConstraintMaker *make) {
+        
+        make.height.mas_equalTo(offsetHeight).priorityHigh();
+    }];
+    
+    [_toolbarView.txtMessage setNeedsUpdateConstraints];
+    [_toolbarView.txtMessage layoutIfNeeded];
+    
+    [self.view layoutIfNeeded];
+    
+    [self updateCollectionViewInsets];
+    
+    if (_toolbarView.txtMessage.contentSize.height > 40) {
+    
+        [self scrollToBottomAnimated:NO];
+    }
+    
+}
 
 - (void)sendMessageWithContent:(NSString *)message{
 
@@ -236,16 +236,8 @@
 
 - (void)finishSendingMessageAnimated:(BOOL)animated {
     
-    UITextView *textView = _toolbarView.txtMessage;
-    textView.text = nil;
+    _toolbarView.txtMessage.text = nil;
     
-//    [textView.undoManager removeAllActions];
-//
-//    [self.inputToolbar toggleSendButtonEnabled];
-//    
-//    [[NSNotificationCenter defaultCenter] postNotificationName:UITextViewTextDidChangeNotification object:textView];
-//    
-//    [self.collectionView.collectionViewLayout invalidateLayoutWithContext:[JSQMessagesCollectionViewFlowLayoutInvalidationContext context]];
     [_collectionView reloadData];
     
     [self scrollToBottomAnimated:animated];
@@ -283,20 +275,15 @@
                                         animated:animated];
 }
 
-- (void)updateCollectionViewInsets
-{
-    NSLog(@"_collectionView Max >>>> %f",CGRectGetMaxY(_collectionView.frame));
-    NSLog(@"_toolbarView Min >>>> %f",CGRectGetMinY(_toolbarView.frame));
-//    [self setCollectionViewInsetsTopValue:0
-//                              bottomValue:CGRectGetMaxY(_collectionView.frame) - CGRectGetMinY(_toolbarView.frame)];
-    [self setCollectionViewInsetsTopValue:0
-                              bottomValue:CGRectGetMaxY(_collectionView.frame) - CGRectGetMinY(_toolbarView.frame)];
+- (void)updateCollectionViewInsets{
+
+    [self setCollectionViewInsetsBottomValue:CGRectGetMaxY(_collectionView.frame) - CGRectGetMinY(_toolbarView.frame)];
 }
 
-- (void)setCollectionViewInsetsTopValue:(CGFloat)top bottomValue:(CGFloat)bottom
-{
-    NSLog(@"bottom >>>> %f",bottom);
-    UIEdgeInsets insets = UIEdgeInsetsMake(top, 0.0f, bottom, 0.0f);
+- (void)setCollectionViewInsetsBottomValue:(CGFloat)bottom{
+    
+    UIEdgeInsets insets = UIEdgeInsetsMake(0.0f, 0.0f, bottom, 0.0f);
+    
     self.collectionView.contentInset = insets;
     self.collectionView.scrollIndicatorInsets = insets;
 }
@@ -313,26 +300,15 @@
         
         if (isShowing) [weakSelf scrollToBottomAnimated:YES];
         
-        
-//        if (_collectionView.contentSize.height > CGRectGetHeight(_collectionView.frame)) {
-
-//            [_collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
-//                
-//                make.bottom.equalTo(self.view).offset(offsetHeight -50);
-//            }];
-
-//        }
-        
         [_toolbarView mas_updateConstraints:^(MASConstraintMaker *make) {
             
-            make.bottom.equalTo(self.view).offset(offsetHeight);
+            make.bottom.equalTo(weakSelf.view).offset(offsetHeight);
         }];
         
-//        [_collectionView layoutIfNeeded];
         [_toolbarView layoutIfNeeded];
-        [self.view layoutIfNeeded];
+        [weakSelf.view layoutIfNeeded];
         
-        [self updateCollectionViewInsets];
+        [weakSelf updateCollectionViewInsets];
         
     } completion:nil];
 }
@@ -362,6 +338,10 @@
         
         _toolbarView = [[UUChatToolBarView alloc] initWithWeakSuper:self];
         _toolbarView.txtMessage.delegate = self;
+        [_toolbarView.txtMessage addObserver:self
+                                  forKeyPath:@"contentSize"
+                                     options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew
+                                     context:nil];
     }
     
     return _toolbarView;
