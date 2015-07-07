@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A4F400B1B4C3105001A0B80 /* ic_send_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A4F40091B4C3105001A0B80 /* ic_send_pressed@2x.png */; };
+		2A4F400C1B4C3105001A0B80 /* ic_send@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A4F400A1B4C3105001A0B80 /* ic_send@2x.png */; };
+		2A4F400F1B4C3595001A0B80 /* UUChatSmileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4F400E1B4C3595001A0B80 /* UUChatSmileView.m */; };
+		2A4F40161B4C3744001A0B80 /* Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4F40131B4C3744001A0B80 /* Emoji.m */; };
+		2A4F40171B4C3744001A0B80 /* EmojiEmoticons.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4F40151B4C3744001A0B80 /* EmojiEmoticons.m */; };
+		2A4F401A1B4C3CD5001A0B80 /* ic_delete_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A4F40181B4C3CD5001A0B80 /* ic_delete_pressed@2x.png */; };
+		2A4F401B1B4C3CD5001A0B80 /* ic_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A4F40191B4C3CD5001A0B80 /* ic_delete@2x.png */; };
 		2A9DAE921B48FD2F007C359B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAE911B48FD2F007C359B /* main.m */; };
 		2A9DAE951B48FD2F007C359B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAE941B48FD2F007C359B /* AppDelegate.m */; };
 		2A9DAE981B48FD2F007C359B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAE971B48FD2F007C359B /* ViewController.m */; };
@@ -55,6 +62,16 @@
 /* Begin PBXFileReference section */
 		115EABC5BE28605951D843AB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		2779EB7D723B5C8BE0C93609 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A4F40091B4C3105001A0B80 /* ic_send_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_send_pressed@2x.png"; sourceTree = "<group>"; };
+		2A4F400A1B4C3105001A0B80 /* ic_send@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_send@2x.png"; sourceTree = "<group>"; };
+		2A4F400D1B4C3595001A0B80 /* UUChatSmileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChatSmileView.h; sourceTree = "<group>"; };
+		2A4F400E1B4C3595001A0B80 /* UUChatSmileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChatSmileView.m; sourceTree = "<group>"; };
+		2A4F40121B4C3744001A0B80 /* Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emoji.h; sourceTree = "<group>"; };
+		2A4F40131B4C3744001A0B80 /* Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Emoji.m; sourceTree = "<group>"; };
+		2A4F40141B4C3744001A0B80 /* EmojiEmoticons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiEmoticons.h; sourceTree = "<group>"; };
+		2A4F40151B4C3744001A0B80 /* EmojiEmoticons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmojiEmoticons.m; sourceTree = "<group>"; };
+		2A4F40181B4C3CD5001A0B80 /* ic_delete_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_delete_pressed@2x.png"; sourceTree = "<group>"; };
+		2A4F40191B4C3CD5001A0B80 /* ic_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_delete@2x.png"; sourceTree = "<group>"; };
 		2A9DAE8C1B48FD2F007C359B /* UUChatCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UUChatCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A9DAE901B48FD2F007C359B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A9DAE911B48FD2F007C359B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -130,6 +147,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A4F40101B4C3744001A0B80 /* OtherFramework */ = {
+			isa = PBXGroup;
+			children = (
+				2A4F40111B4C3744001A0B80 /* Emoji */,
+			);
+			path = OtherFramework;
+			sourceTree = "<group>";
+		};
+		2A4F40111B4C3744001A0B80 /* Emoji */ = {
+			isa = PBXGroup;
+			children = (
+				2A4F40121B4C3744001A0B80 /* Emoji.h */,
+				2A4F40131B4C3744001A0B80 /* Emoji.m */,
+				2A4F40141B4C3744001A0B80 /* EmojiEmoticons.h */,
+				2A4F40151B4C3744001A0B80 /* EmojiEmoticons.m */,
+			);
+			path = Emoji;
+			sourceTree = "<group>";
+		};
 		2A9DAE831B48FD2F007C359B = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +232,7 @@
 		2A9DAEB51B48FE61007C359B /* UUChat */ = {
 			isa = PBXGroup;
 			children = (
+				2A4F40101B4C3744001A0B80 /* OtherFramework */,
 				2A9DAEF51B493C0B007C359B /* Categories */,
 				2A9DAEB61B48FE61007C359B /* Configs */,
 				2A9DAEB71B48FE61007C359B /* Controller */,
@@ -259,6 +296,10 @@
 		2A9DAEBB1B48FE61007C359B /* image */ = {
 			isa = PBXGroup;
 			children = (
+				2A4F40181B4C3CD5001A0B80 /* ic_delete_pressed@2x.png */,
+				2A4F40191B4C3CD5001A0B80 /* ic_delete@2x.png */,
+				2A4F40091B4C3105001A0B80 /* ic_send_pressed@2x.png */,
+				2A4F400A1B4C3105001A0B80 /* ic_send@2x.png */,
 				2A9DAEED1B493B93007C359B /* ic_expression_pressed@2x.png */,
 				2A9DAEEE1B493B93007C359B /* ic_expression@2x.png */,
 				2A9DAEEF1B493B93007C359B /* ic_keyboar_pressedd@2x.png */,
@@ -291,6 +332,8 @@
 				2A9DAEE31B492FD2007C359B /* UUChatToolBarView.m */,
 				2A9DAF021B49879D007C359B /* UUChatTimeStampView.h */,
 				2A9DAF031B49879D007C359B /* UUChatTimeStampView.m */,
+				2A4F400D1B4C3595001A0B80 /* UUChatSmileView.h */,
+				2A4F400E1B4C3595001A0B80 /* UUChatSmileView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -413,8 +456,11 @@
 				2A9DAEC61B48FE61007C359B /* userAvatarIncoming@2x.png in Resources */,
 				2A9DAEE71B4932ED007C359B /* ic_voice_bar_pressed@2x.png in Resources */,
 				2A9DAEEC1B493363007C359B /* ic_add_bar@2x.png in Resources */,
+				2A4F400B1B4C3105001A0B80 /* ic_send_pressed@2x.png in Resources */,
 				2A9DAEC51B48FE61007C359B /* bg_bubble_pressed@2x.png in Resources */,
 				2A9DAE9B1B48FD2F007C359B /* Main.storyboard in Resources */,
+				2A4F401A1B4C3CD5001A0B80 /* ic_delete_pressed@2x.png in Resources */,
+				2A4F401B1B4C3CD5001A0B80 /* ic_delete@2x.png in Resources */,
 				2A9DAEEB1B493363007C359B /* ic_add_bar_pressed@2x.png in Resources */,
 				2A9DAEC31B48FE61007C359B /* bg_bubble_m_pressed@2x.png in Resources */,
 				2A9DAEE81B4932ED007C359B /* ic_voice_bar@2x.png in Resources */,
@@ -425,6 +471,7 @@
 				2A9DAEF11B493B93007C359B /* ic_expression_pressed@2x.png in Resources */,
 				2A9DAEA01B48FD2F007C359B /* LaunchScreen.xib in Resources */,
 				2A9DAE9D1B48FD2F007C359B /* Images.xcassets in Resources */,
+				2A4F400C1B4C3105001A0B80 /* ic_send@2x.png in Resources */,
 				2A9DAEC41B48FE61007C359B /* bg_bubble_nor@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,17 +523,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A4F40171B4C3744001A0B80 /* EmojiEmoticons.m in Sources */,
 				2A9DAED51B4900BC007C359B /* UUChatCollectionViewCellIncoming.m in Sources */,
 				2A9DAF041B49879D007C359B /* UUChatTimeStampView.m in Sources */,
 				2A9DAEDE1B4909ED007C359B /* UUChatCollectionViewLayoutAttributes.m in Sources */,
 				2A9DAED21B490060007C359B /* UUChatCollectionViewCell.m in Sources */,
 				2A9DAE981B48FD2F007C359B /* ViewController.m in Sources */,
 				2A9DAEF81B493C3B007C359B /* UIViewController+KeyboardAnimation.m in Sources */,
+				2A4F40161B4C3744001A0B80 /* Emoji.m in Sources */,
 				2A9DAECF1B490047007C359B /* UUChatCollectionView.m in Sources */,
 				2A9DAEDB1B490785007C359B /* UUChatMessage.m in Sources */,
 				2A9DAEE41B492FD2007C359B /* UUChatToolBarView.m in Sources */,
 				2A9DAEFB1B495C27007C359B /* UUChatCollectionViewFlowLayoutInvalidationContext.m in Sources */,
 				2A9DAED81B49056D007C359B /* UUChatCollectionViewFlowLayout.m in Sources */,
+				2A4F400F1B4C3595001A0B80 /* UUChatSmileView.m in Sources */,
 				2A9DAE951B48FD2F007C359B /* AppDelegate.m in Sources */,
 				2A9DAECC1B48FF87007C359B /* UUChatViewController.m in Sources */,
 				2A9DAE921B48FD2F007C359B /* main.m in Sources */,

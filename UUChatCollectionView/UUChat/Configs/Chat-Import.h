@@ -22,6 +22,7 @@
 #import "UUChatCollectionViewCellOutgoing.h"
 #import "UUChatToolBarView.h"
 #import "UUChatTimeStampView.h"
+#import "UUChatSmileView.h"
 
 //Layout
 #import "UUChatCollectionViewFlowLayout.h"

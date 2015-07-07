@@ -15,9 +15,10 @@
                                     UICollectionViewDelegateFlowLayout,
                                     UITextViewDelegate >
 
-
 @property (nonatomic, strong, getter = getCollectionView) UUChatCollectionView *collectionView;
 @property (nonatomic, strong, getter = getToolBarView) UUChatToolBarView *toolbarView;
+@property (nonatomic, strong, getter = getSmileView) UUChatSmileView *smileView;
+
 
 @property (nonatomic, strong) NSMutableArray *messageArray;
 
@@ -336,7 +337,7 @@
 
     if (!_toolbarView) {
         
-        _toolbarView = [[UUChatToolBarView alloc] initWithWeakSuper:self];
+        _toolbarView = [[UUChatToolBarView alloc] init];
         _toolbarView.txtMessage.delegate = self;
         [_toolbarView.txtMessage addObserver:self
                                   forKeyPath:@"contentSize"
@@ -345,6 +346,16 @@
     }
     
     return _toolbarView;
+}
+
+- (UUChatSmileView *)getSmileView{
+
+    if (!_smileView) {
+        
+        _smileView = [[UUChatSmileView alloc] init];
+    }
+    
+    return _smileView;
 }
 
 @end

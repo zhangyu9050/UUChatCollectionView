@@ -12,6 +12,4 @@
 
 @property (nonatomic, strong, getter = getTextMessageView) UITextView *txtMessage;
 
-- (instancetype)initWithWeakSuper:(id)weakSuper;
-
 @end
