@@ -20,7 +20,18 @@
 
 @property (nonatomic, strong) NSString *message;
 
+@property (nonatomic, strong) NSString *localPath;
+
+@property (nonatomic, strong) NSString *originalImagePath;
+
+@property (nonatomic, strong) NSNumber *status;
+
+@property (nonatomic, strong) NSNumber *unRead;
+
+
 
 - (instancetype)initWithSendMessage:(NSString *)message;
+
+- (instancetype)initWithSendImagePath:(NSString *)path;
 
 @end

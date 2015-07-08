@@ -110,6 +110,8 @@
         make.top.equalTo(self.timeStampView.mas_bottom).offset(Offset == 0 ? 10 :20);
     }];
     
+    
+    
     [super updateConstraints];
 }
 
@@ -144,6 +146,7 @@
     UIEdgeInsets edge=UIEdgeInsetsMake(15, 15, 15 ,15);
     
     self.imgBubble.image= [img resizableImageWithCapInsets:edge resizingMode:UIImageResizingModeStretch];
+
 }
 
 #pragma mark - Private Methods

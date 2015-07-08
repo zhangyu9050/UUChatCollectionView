@@ -20,7 +20,9 @@
 @property (nonatomic, strong, getter = getImageBubble) UIImageView *imgBubble;
 @property (nonatomic, strong, getter = getTimestampView) UUChatTimeStampView *timeStampView;
 @property (nonatomic, strong, getter = getLabelUserName) UILabel *lblUserName;
+
 @property (nonatomic, strong, getter = getLabelMessage) UILabel *lblMessage;
+@property (nonatomic, strong, getter = getImageMessage) UIImageView *imgMessage;
 
 @property (nonatomic, assign) BOOL didSetupConstraints;
 
@@ -34,6 +36,7 @@
 - (void)setContentWithObject:(UUChatMessage *)obj indexPath:(NSInteger )index;
 
 + (NSString *)cellReuseIdentifier;
+
 + (CGFloat)maxBubboleWidth;
 
 @end

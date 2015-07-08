@@ -8,6 +8,8 @@
 
 #import "UUChatMessage.h"
 
+#define kDefultImagePath @"a3535137dff44727aecd42325b271fce.jpg"
+
 @implementation UUChatMessage
 
 - (instancetype)initWithSendMessage:(NSString *)message{
@@ -21,6 +23,22 @@
     }
     
     return self;
+}
+
+- (instancetype)initWithSendImagePath:(NSString *)path{
+
+    if (self = [super init]) {
+        
+        self.timestamp = [self sendTimeString];
+        self.userName = @"zhang";
+        self.userAvatar = @"userAvatarIncoming";
+        self.message = @"";
+        self.localPath = kDefultImagePath;
+        self.originalImagePath = @"";
+    }
+    
+    return self;
+
 }
 
 

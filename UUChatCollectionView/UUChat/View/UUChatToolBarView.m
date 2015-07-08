@@ -178,7 +178,7 @@
         [_btnAdd setImage:[UIImage imageNamed:@"ic_add_bar"] forState:UIControlStateNormal];
         [_btnAdd setImage:[UIImage imageNamed:@"ic_add_bar_pressed"] forState:UIControlStateHighlighted];
         
-        [_btnAdd addTarget:self action:@selector(onClickSmilies:) forControlEvents:UIControlEventTouchUpInside];
+//        [_btnAdd addTarget:self action:@selector(onClickSmilies:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     return _btnAdd;

@@ -113,11 +113,12 @@
     
     UUChatCollectionViewCell *cell;
     if (indexPath.row % 2 == 0) {
-    
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:[UUChatCollectionViewCellOutgoing cellReuseIdentifier] forIndexPath:indexPath];
-    }else{
 
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:[UUChatCollectionViewCellIncoming cellReuseIdentifier] forIndexPath:indexPath];
+        
+    }else{
+
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:[UUChatCollectionViewCellOutgoing cellReuseIdentifier] forIndexPath:indexPath];
     }
 
     [cell setContentWithObject:_messageArray[indexPath.row] indexPath:indexPath.row];
@@ -321,6 +322,9 @@
     if (!_collectionView) {
         
         _messageArray = [[NSMutableArray alloc] init];
+        
+        
+//        [_messageArray addObject:[[UUChatMessage alloc] initWithSendImagePath:@""]];
         
         UUChatCollectionViewFlowLayout *flowLayout= [[UUChatCollectionViewFlowLayout alloc] init];
         

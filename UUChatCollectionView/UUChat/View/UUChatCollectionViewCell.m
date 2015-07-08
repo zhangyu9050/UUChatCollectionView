@@ -56,6 +56,8 @@
     [self.contentView addSubview:self.imgBubble];
     
     [_imgBubble addSubview:self.lblMessage];
+    [_imgBubble addSubview:self.imgMessage];
+    
     
 //    self.contentView.layer.borderColor = [UIColor blueColor].CGColor;
 //    self.contentView.layer.borderWidth = 2;
@@ -84,6 +86,7 @@
     
     return ScreenWidth - 140;
 }
+
 
 #pragma mark - Private Methods
 
@@ -162,6 +165,19 @@
     }
     
     return _lblMessage;
+}
+
+- (UIImageView *)getImageMessage{
+
+    if (!_imgMessage) {
+        
+        _imgMessage = [[UIImageView alloc] init];
+        
+        _imgMessage.layer.borderWidth = 2;
+        _imgMessage.layer.borderColor = [UIColor redColor].CGColor;
+    }
+    
+    return _imgMessage;
 }
 
 @end
