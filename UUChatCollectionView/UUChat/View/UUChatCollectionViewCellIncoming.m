@@ -13,6 +13,7 @@
 @interface UUChatCollectionViewCellIncoming(){
 
     CGFloat Offset;
+    CALayer *_contentLayer;
 }
 
 @end
@@ -45,12 +46,6 @@
     
     [super configUI];
     
-//    self.lblTimestamp.text = @"2015-0704";
-//    self.lblUserName.text = @"zhangyu";
-//    self.imgUserAvatar.image = [UIImage imageNamed:@"userAvatarIncoming"];
-//    
-//    self.lblMessage.text = @"However, when we rotate from portrait to landscape we get the following complaint";
-    
     
     UIImage* img=[UIImage imageNamed:@"bg_bubble_nor"];//原图
     UIEdgeInsets edge=UIEdgeInsetsMake(15, 15, 15 ,15);
@@ -79,7 +74,6 @@
         [self.lblUserName mas_makeConstraints:^(MASConstraintMaker *make) {
             
             make.height.mas_equalTo(@20).priorityHigh();
-//            make.width.mas_equalTo([UUChatCollectionViewCell maxBubboleWidth]);
             make.top.equalTo(self.imgUserAvatar);
             make.left.equalTo(self.imgUserAvatar.mas_right).offset(10);
             
@@ -110,7 +104,7 @@
         make.top.equalTo(self.timeStampView.mas_bottom).offset(Offset == 0 ? 10 :20);
     }];
     
-    
+
     
     [super updateConstraints];
 }
@@ -124,7 +118,7 @@
 #pragma mark - Public Methods
 
 - (void)setContentWithObject:(UUChatMessage *)obj indexPath:(NSInteger )index{
-
+    
     if (index % 5 == 0) {
         
         [self.timeStampView setContent:obj.timestamp];
@@ -136,20 +130,34 @@
         Offset = 0;
     }
     
-//    [self.timeStampView setContent:obj.timestamp];
     self.lblUserName.text = obj.userName;
     self.imgUserAvatar.image = [UIImage imageNamed:obj.userAvatar];
-
-    self.lblMessage.text = obj.message;
+    
+    self.imgMessage.hidden = self.lblMessage.hidden = YES;
     
     UIImage* img=[UIImage imageNamed:@"bg_bubble_nor"];//原图
     UIEdgeInsets edge=UIEdgeInsetsMake(15, 15, 15 ,15);
+    UIImage *bubbleImage = [img resizableImageWithCapInsets:edge resizingMode:UIImageResizingModeStretch];
     
-    self.imgBubble.image= [img resizableImageWithCapInsets:edge resizingMode:UIImageResizingModeStretch];
+    self.imgBubble.image= bubbleImage;
 
+    if (obj.messageType == kUUChatMessage) {
+
+        self.lblMessage.hidden = NO;
+        self.lblMessage.text = obj.message;
+    }
 }
 
 #pragma mark - Private Methods
+
+- (void)setImageMessageWithBubbleImage:(UIImage *)image imageSize:(CGSize)size{
+
+    UIImageView *imageViewMask = [[UIImageView alloc] initWithImage:image];
+    imageViewMask.frame = CGRectInset(self.imgMessage.frame, 0, 0);
+
+    self.imgMessage.layer.mask = imageViewMask.layer;
+    self.imgBubble.layer.masksToBounds = YES;
+}
 
 #pragma mark - Getters And Setters
 

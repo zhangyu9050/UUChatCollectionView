@@ -45,14 +45,7 @@
     
     [super configUI];
     
-    //    self.lblTimestamp.text = @"2015-0704";
-    //    self.lblUserName.text = @"zhangyu";
-    //    self.imgUserAvatar.image = [UIImage imageNamed:@"userAvatarIncoming"];
-    //
-    //    self.lblMessage.text = @"However, when we rotate from portrait to landscape we get the following complaint";
-    
     self.lblUserName.textAlignment = NSTextAlignmentRight;
-//    self.lblMessage.textAlignment = NSTextAlignmentRight;
     
     UIImage* img=[UIImage imageNamed:@"bg_bubble_m_nor"];//原图
     UIEdgeInsets edge=UIEdgeInsetsMake(15, 10, 15 ,15);
@@ -81,7 +74,6 @@
         [self.lblUserName mas_makeConstraints:^(MASConstraintMaker *make) {
             
             make.height.mas_equalTo(@20).priorityHigh();
-//            make.width.mas_equalTo([UUChatCollectionViewCell maxBubboleWidth]);
             make.top.equalTo(self.imgUserAvatar);
             make.right.equalTo(self.imgUserAvatar.mas_left).offset(-10);
             

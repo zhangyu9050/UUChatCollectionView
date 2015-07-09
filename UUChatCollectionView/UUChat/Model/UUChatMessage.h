@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+
+    kUUChatMessage = 1000,
+    kUUChatImage,
+    kUUChatSound
+    
+}MediaMessageType;
+
 @interface UUChatMessage : NSObject
 
 @property (nonatomic, strong) NSString *fromId;
@@ -27,6 +35,8 @@
 @property (nonatomic, strong) NSNumber *status;
 
 @property (nonatomic, strong) NSNumber *unRead;
+
+@property MediaMessageType messageType;
 
 
 

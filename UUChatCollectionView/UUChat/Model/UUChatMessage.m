@@ -8,7 +8,7 @@
 
 #import "UUChatMessage.h"
 
-#define kDefultImagePath @"a3535137dff44727aecd42325b271fce.jpg"
+#define kDefultImagePath @"u=4070476623,1398118108&fm=21&gp=0.jpg"
 
 @implementation UUChatMessage
 
@@ -20,6 +20,7 @@
         self.userName = @"zhang";
         self.userAvatar = @"userAvatarIncoming";
         self.message = message;
+        self.messageType = kUUChatMessage;
     }
     
     return self;
@@ -35,6 +36,7 @@
         self.message = @"";
         self.localPath = kDefultImagePath;
         self.originalImagePath = @"";
+        self.messageType = kUUChatImage;
     }
     
     return self;

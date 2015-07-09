@@ -29,6 +29,9 @@
 #import "UUChatCollectionViewLayoutAttributes.h"
 #import "UUChatCollectionViewFlowLayoutInvalidationContext.h"
 
+//Factories
+#import "UUChatImageFactory.h"
+
 //Model
 #import "UUChatMessage.h"
 #import "UUChatCollectionViewDataSource.h"

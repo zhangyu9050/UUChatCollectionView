@@ -15,6 +15,8 @@
 		2A4F401A1B4C3CD5001A0B80 /* ic_delete_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A4F40181B4C3CD5001A0B80 /* ic_delete_pressed@2x.png */; };
 		2A4F401B1B4C3CD5001A0B80 /* ic_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A4F40191B4C3CD5001A0B80 /* ic_delete@2x.png */; };
 		2A4F401D1B4C4409001A0B80 /* a3535137dff44727aecd42325b271fce.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A4F401C1B4C4409001A0B80 /* a3535137dff44727aecd42325b271fce.jpg */; };
+		2A6CF5DE1B4D45120023C9B6 /* UUChatImageFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6CF5DD1B4D45120023C9B6 /* UUChatImageFactory.m */; };
+		2A6CF5E01B4D4C460023C9B6 /* u=4070476623,1398118108&fm=21&gp=0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A6CF5DF1B4D4C460023C9B6 /* u=4070476623,1398118108&fm=21&gp=0.jpg */; };
 		2A9DAE921B48FD2F007C359B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAE911B48FD2F007C359B /* main.m */; };
 		2A9DAE951B48FD2F007C359B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAE941B48FD2F007C359B /* AppDelegate.m */; };
 		2A9DAE981B48FD2F007C359B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DAE971B48FD2F007C359B /* ViewController.m */; };
@@ -74,6 +76,9 @@
 		2A4F40181B4C3CD5001A0B80 /* ic_delete_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_delete_pressed@2x.png"; sourceTree = "<group>"; };
 		2A4F40191B4C3CD5001A0B80 /* ic_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_delete@2x.png"; sourceTree = "<group>"; };
 		2A4F401C1B4C4409001A0B80 /* a3535137dff44727aecd42325b271fce.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = a3535137dff44727aecd42325b271fce.jpg; sourceTree = "<group>"; };
+		2A6CF5DC1B4D45120023C9B6 /* UUChatImageFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUChatImageFactory.h; sourceTree = "<group>"; };
+		2A6CF5DD1B4D45120023C9B6 /* UUChatImageFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUChatImageFactory.m; sourceTree = "<group>"; };
+		2A6CF5DF1B4D4C460023C9B6 /* u=4070476623,1398118108&fm=21&gp=0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "u=4070476623,1398118108&fm=21&gp=0.jpg"; sourceTree = "<group>"; };
 		2A9DAE8C1B48FD2F007C359B /* UUChatCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UUChatCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A9DAE901B48FD2F007C359B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A9DAE911B48FD2F007C359B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -168,6 +173,15 @@
 			path = Emoji;
 			sourceTree = "<group>";
 		};
+		2A6CF5DB1B4D44DD0023C9B6 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				2A6CF5DC1B4D45120023C9B6 /* UUChatImageFactory.h */,
+				2A6CF5DD1B4D45120023C9B6 /* UUChatImageFactory.m */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
 		2A9DAE831B48FD2F007C359B = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +248,7 @@
 		2A9DAEB51B48FE61007C359B /* UUChat */ = {
 			isa = PBXGroup;
 			children = (
+				2A6CF5DB1B4D44DD0023C9B6 /* Factories */,
 				2A4F40101B4C3744001A0B80 /* OtherFramework */,
 				2A9DAEF51B493C0B007C359B /* Categories */,
 				2A9DAEB61B48FE61007C359B /* Configs */,
@@ -298,6 +313,7 @@
 		2A9DAEBB1B48FE61007C359B /* image */ = {
 			isa = PBXGroup;
 			children = (
+				2A6CF5DF1B4D4C460023C9B6 /* u=4070476623,1398118108&fm=21&gp=0.jpg */,
 				2A4F401C1B4C4409001A0B80 /* a3535137dff44727aecd42325b271fce.jpg */,
 				2A4F40181B4C3CD5001A0B80 /* ic_delete_pressed@2x.png */,
 				2A4F40191B4C3CD5001A0B80 /* ic_delete@2x.png */,
@@ -463,6 +479,7 @@
 				2A9DAEC51B48FE61007C359B /* bg_bubble_pressed@2x.png in Resources */,
 				2A9DAE9B1B48FD2F007C359B /* Main.storyboard in Resources */,
 				2A4F401D1B4C4409001A0B80 /* a3535137dff44727aecd42325b271fce.jpg in Resources */,
+				2A6CF5E01B4D4C460023C9B6 /* u=4070476623,1398118108&fm=21&gp=0.jpg in Resources */,
 				2A4F401A1B4C3CD5001A0B80 /* ic_delete_pressed@2x.png in Resources */,
 				2A4F401B1B4C3CD5001A0B80 /* ic_delete@2x.png in Resources */,
 				2A9DAEEB1B493363007C359B /* ic_add_bar_pressed@2x.png in Resources */,
@@ -534,6 +551,7 @@
 				2A9DAED21B490060007C359B /* UUChatCollectionViewCell.m in Sources */,
 				2A9DAE981B48FD2F007C359B /* ViewController.m in Sources */,
 				2A9DAEF81B493C3B007C359B /* UIViewController+KeyboardAnimation.m in Sources */,
+				2A6CF5DE1B4D45120023C9B6 /* UUChatImageFactory.m in Sources */,
 				2A4F40161B4C3744001A0B80 /* Emoji.m in Sources */,
 				2A9DAECF1B490047007C359B /* UUChatCollectionView.m in Sources */,
 				2A9DAEDB1B490785007C359B /* UUChatMessage.m in Sources */,
