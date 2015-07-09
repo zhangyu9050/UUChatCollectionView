@@ -13,7 +13,8 @@
 @interface UUChatViewController() < UUChatCollectionViewDataSource,
                                     UICollectionViewDelegate,
                                     UICollectionViewDelegateFlowLayout,
-                                    UITextViewDelegate >
+                                    UITextViewDelegate,
+                                    UIActionSheetDelegate >
 
 @property (nonatomic, strong, getter = getCollectionView) UUChatCollectionView *collectionView;
 @property (nonatomic, strong, getter = getToolBarView) UUChatToolBarView *toolbarView;
@@ -175,6 +176,18 @@
     return YES;
 }
 
+#pragma mark - UIActionSheet Delegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+
+    if (buttonIndex == 0) {
+        
+        [_messageArray addObject:[[UUChatMessage alloc] initWithSendImagePath:@""]];
+        
+        [self finishSendingMessage];
+    }
+}
+
 #pragma mark - Observe KVO
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
@@ -195,6 +208,17 @@
 #pragma mark - Custom Deledate
 
 #pragma mark - Event Response
+
+- (void)onClickPhoto:(id)sender{
+
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"取消"
+                                         destructiveButtonTitle:nil
+                                              otherButtonTitles:@"发送图片", nil];
+    
+    [sheet showInView:self.view];
+}
 
 #pragma mark - Public Methods
 
@@ -342,6 +366,7 @@
         
         _toolbarView = [[UUChatToolBarView alloc] init];
         _toolbarView.txtMessage.delegate = self;
+        [_toolbarView addPhotoTarget:self action:@selector(onClickPhoto:)];
         [_toolbarView.txtMessage addObserver:self
                                   forKeyPath:@"contentSize"
                                      options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew

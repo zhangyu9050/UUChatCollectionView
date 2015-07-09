@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong, getter = getTextMessageView) UITextView *txtMessage;
 
+- (void)addPhotoTarget:(id)target action:(SEL)action;
+
 @end

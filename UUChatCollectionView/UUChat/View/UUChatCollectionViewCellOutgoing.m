@@ -87,6 +87,11 @@
             make.edges.equalTo(self.imgBubble).with.insets(self.chatMessageOutgoingInsets);
         }];
         
+        [self.imgMessage mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.edges.equalTo(self.imgBubble).with.insets(UIEdgeInsetsZero);
+        }];
+        
         self.didSetupConstraints = YES;
     }
     
@@ -114,23 +119,40 @@
 - (void)setContentWithObject:(UUChatMessage *)obj indexPath:(NSInteger )index{
     
     if (index % 5 == 0) {
-    
+        
         [self.timeStampView setContent:obj.timestamp];
         Offset = kTimeStempOffsetTop;
         
     }else{
-    
+        
         [self.timeStampView setContent:@""];
         Offset = 0;
     }
-
     
     self.lblUserName.text = obj.userName;
     self.imgUserAvatar.image = [UIImage imageNamed:obj.userAvatar];
     
-    self.lblMessage.text = obj.message;
-
-    self.imgBubble.image= [UUChatImageFactory bubbleImageOutgoing];;
+    self.imgMessage.hidden = self.lblMessage.hidden = YES;
+    
+    UIImage *bubbleImage = [UUChatImageFactory bubbleImageOutgoing];
+    
+    self.imgBubble.image= bubbleImage;
+    
+    if (obj.messageType == kUUChatMessage) {
+        
+        self.lblMessage.hidden = NO;
+        self.lblMessage.text = obj.message;
+        
+    }else if (obj.messageType == kUUChatImage){
+        
+        self.imgMessage.hidden = NO;
+        
+        UIImage *image = [UIImage imageNamed:obj.localPath];
+        CGSize size = [UUChatImageFactory calcImageScaleSize:image.size maxWidth:200 maxHeight:200];
+        
+        self.imgMessage.image = [UUChatImageFactory originImage:image scaleToSize:size];
+        [self setImageMessageWithBubbleImage:bubbleImage imageSize:size];
+    }
 }
 
 #pragma mark - Private Methods

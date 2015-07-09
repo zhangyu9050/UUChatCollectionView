@@ -158,13 +158,7 @@
 
 #pragma mark - Private Methods
 
-- (void)setImageMessageWithBubbleImage:(UIImage *)image imageSize:(CGSize)size{
 
-    UIImageView *imageViewMask = [[UIImageView alloc] initWithImage:image];
-    imageViewMask.frame = CGRectMake(0, 0, size.width, size.height);
-
-    self.imgMessage.layer.mask = imageViewMask.layer;
-}
 
 #pragma mark - Getters And Setters
 

@@ -117,6 +117,11 @@
 
 #pragma mark - Event Response
 
+- (void)addPhotoTarget:(id)target action:(SEL)action{
+
+    [_btnAdd addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+}
+
 - (void)onClickSmilies:(UIButton *)sender{
     
     if (![_txtMessage isFirstResponder]) [_txtMessage becomeFirstResponder];

@@ -34,6 +34,7 @@
 
 - (void)configUI;
 - (void)setContentWithObject:(UUChatMessage *)obj indexPath:(NSInteger )index;
+- (void)setImageMessageWithBubbleImage:(UIImage *)image imageSize:(CGSize)size;
 
 + (NSString *)cellReuseIdentifier;
 
