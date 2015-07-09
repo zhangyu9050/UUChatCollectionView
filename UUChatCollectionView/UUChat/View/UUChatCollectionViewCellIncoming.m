@@ -116,14 +116,10 @@
         make.top.equalTo(self.timeStampView.mas_bottom).offset(Offset == 0 ? 10 :20);
     }];
     
-    if (self.lblSoundTime.text.length > 0) {
-        
-        [self.lblSoundTime mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.width.mas_equalTo(@100);
-        }];
-        
-    }
+//    [self.lblSoundTime mas_updateConstraints:^(MASConstraintMaker *make) {
+//        
+//        make.width.mas_equalTo(self.lblSoundTime.text.length > 0 ? @100 : @0);
+//    }];
     
     [super updateConstraints];
 }
@@ -178,7 +174,7 @@
     
         self.imgSound.hidden = self.lblSoundTime.hidden = NO;
         
-        self.lblSoundTime.text = @"12'";
+        self.lblSoundTime.text = @"                 12'";
         self.imgSound .image = [UIImage imageNamed:@"wave3_b"];
     }
 }
