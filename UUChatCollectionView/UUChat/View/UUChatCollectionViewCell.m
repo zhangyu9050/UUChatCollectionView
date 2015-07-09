@@ -116,7 +116,6 @@
     if (!_imgBubble) {
         
         _imgBubble = [[UIImageView alloc] init];
-        _imgBubble.contentMode = UIViewContentModeScaleAspectFill;
         
 //        _imgBubble.layer.borderWidth = 2;
 //        _imgBubble.layer.borderColor = [UIColor greenColor].CGColor;

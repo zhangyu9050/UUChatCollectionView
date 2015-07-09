@@ -46,11 +46,6 @@
     
     [super configUI];
     
-    
-    UIImage* img=[UIImage imageNamed:@"bg_bubble_nor"];//原图
-    UIEdgeInsets edge=UIEdgeInsetsMake(15, 15, 15 ,15);
-    
-    self.imgBubble.image= [img resizableImageWithCapInsets:edge resizingMode:UIImageResizingModeStretch];
 }
 
 - (void)updateConstraints{
@@ -135,9 +130,7 @@
     
     self.imgMessage.hidden = self.lblMessage.hidden = YES;
     
-    UIImage* img=[UIImage imageNamed:@"bg_bubble_nor"];//原图
-    UIEdgeInsets edge=UIEdgeInsetsMake(15, 15, 15 ,15);
-    UIImage *bubbleImage = [img resizableImageWithCapInsets:edge resizingMode:UIImageResizingModeStretch];
+    UIImage *bubbleImage = [UUChatImageFactory bubbleImageIncoming];
     
     self.imgBubble.image= bubbleImage;
 

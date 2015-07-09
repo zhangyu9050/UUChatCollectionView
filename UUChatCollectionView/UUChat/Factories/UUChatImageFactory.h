@@ -11,8 +11,11 @@
 
 @interface UUChatImageFactory : NSObject
 
-+(UIImage *)originImage:(UIImage *)image scaleToSize:(CGSize)size;
++(UIImage *)bubbleImageIncoming;
 
++(UIImage *)bubbleImageOutgoing;
+
++(UIImage *)originImage:(UIImage *)image scaleToSize:(CGSize)size;
 
 + (CGSize)calcImageScaleSize:(CGSize)imgSize maxWidth:(CGFloat)maxwidth maxHeight:(CGFloat)maxheight;
 @end

@@ -10,6 +10,22 @@
 
 @implementation UUChatImageFactory
 
++(UIImage *)bubbleImageIncoming{
+
+    UIImage* image = [UIImage imageNamed:@"bg_bubble_nor"];//原图
+    UIEdgeInsets edge = UIEdgeInsetsMake(15, 15, 15 ,15);
+    
+    return [image resizableImageWithCapInsets:edge resizingMode:UIImageResizingModeStretch];
+}
+
++(UIImage *)bubbleImageOutgoing{
+
+    UIImage* image = [UIImage imageNamed:@"bg_bubble_m_nor"];//原图
+    UIEdgeInsets edge = UIEdgeInsetsMake(15, 10, 15 ,15);
+    
+    return [image resizableImageWithCapInsets:edge resizingMode:UIImageResizingModeStretch];
+}
+
 +(UIImage*)originImage:(UIImage *)image scaleToSize:(CGSize)size
 {
     UIGraphicsBeginImageContext(size);
