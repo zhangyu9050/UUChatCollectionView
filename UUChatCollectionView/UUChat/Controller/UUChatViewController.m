@@ -322,6 +322,8 @@
     if (!_collectionView) {
         
         _messageArray = [[NSMutableArray alloc] init];
+        
+        [_messageArray addObject:[[UUChatMessage alloc] initWithSendImagePath:@""]];
 
         UUChatCollectionViewFlowLayout *flowLayout= [[UUChatCollectionViewFlowLayout alloc] init];
         

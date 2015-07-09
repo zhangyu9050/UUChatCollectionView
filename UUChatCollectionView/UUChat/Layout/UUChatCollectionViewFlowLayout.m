@@ -154,7 +154,7 @@
     
     CGSize finalSize = CGSizeZero;
     
-//    if (messageItem.messageType == kUUChatMessage) {
+    if (messageItem.messageType == kUUChatMessage) {
 
         CGRect stringRect = [messageItem.message boundingRectWithSize:CGSizeMake(_messageBubbleMaxWidth, CGFLOAT_MAX)
                                                               options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
@@ -163,16 +163,16 @@
 
         finalSize.height += stringRect.size.height;
         
-//    }else if (messageItem.messageType == kUUChatImage){
-//    
-//        
-//        UIImage *image = [UIImage imageNamed:messageItem.localPath];
-//        
-//        CGSize size = [UUChatImageFactory calcImageScaleSize:image.size maxWidth:200 maxHeight:200];
-//        finalSize.height += size.height;
-//
-//    }
+    }else if (messageItem.messageType == kUUChatImage){
     
+        
+        UIImage *image = [UIImage imageNamed:messageItem.localPath];
+        
+        CGSize size = [UUChatImageFactory calcImageScaleSize:image.size maxWidth:200 maxHeight:200];
+        finalSize.height += size.height;
+
+    }
+
     
     finalSize.height += indexPath.row % 5 == 0 ? 20 : 0;
     
@@ -201,23 +201,23 @@
 
 - (void)configureMessageCellLayoutAttributes:(UUChatCollectionViewLayoutAttributes *)layoutAttributes{
 
-//    NSIndexPath *indexPath = layoutAttributes.indexPath;
-//
-//    UUChatMessage *messageItem = [self.collectionView.dataSource collectionView:self.collectionView messageDataForItemAtIndexPath:indexPath];
+    NSIndexPath *indexPath = layoutAttributes.indexPath;
+
+    UUChatMessage *messageItem = [self.collectionView.dataSource collectionView:self.collectionView messageDataForItemAtIndexPath:indexPath];
     
     layoutAttributes.messageBubbleMaxWidth = _messageBubbleMaxWidth;
     
     layoutAttributes.messageBubbleInsets = UIEdgeInsetsZero;
     
-//    if (messageItem.messageType == kUUChatMessage) {
+    if (messageItem.messageType == kUUChatMessage) {
     
         layoutAttributes.messageFrameInsets = UIEdgeInsetsMake(10, 20, 10, 15);
         
-//    }else if (messageItem.messageType == kUUChatImage){
-//    
-//        layoutAttributes.messageFrameInsets = UIEdgeInsetsZero;
-//    }
-//    
+    }else if (messageItem.messageType == kUUChatImage){
+    
+        layoutAttributes.messageFrameInsets = UIEdgeInsetsZero;
+    }
+    
     
     
     layoutAttributes.messageFont = _messageFont;

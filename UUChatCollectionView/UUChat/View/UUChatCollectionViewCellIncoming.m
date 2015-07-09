@@ -86,6 +86,11 @@
             make.edges.equalTo(self.imgBubble).with.insets(self.chatMessageIncomingInsets);
         }];
         
+        [self.imgMessage mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.edges.equalTo(self.imgBubble).with.insets(UIEdgeInsetsZero);
+        }];
+        
         self.didSetupConstraints = YES;
     }
     
@@ -138,6 +143,16 @@
 
         self.lblMessage.hidden = NO;
         self.lblMessage.text = obj.message;
+        
+    }else if (obj.messageType == kUUChatImage){
+    
+        self.imgMessage.hidden = NO;
+        
+        UIImage *image = [UIImage imageNamed:obj.localPath];
+        CGSize size = [UUChatImageFactory calcImageScaleSize:image.size maxWidth:200 maxHeight:200];
+        
+        self.imgMessage.image = [UUChatImageFactory originImage:image scaleToSize:size];
+        [self setImageMessageWithBubbleImage:bubbleImage imageSize:size];
     }
 }
 
@@ -146,10 +161,9 @@
 - (void)setImageMessageWithBubbleImage:(UIImage *)image imageSize:(CGSize)size{
 
     UIImageView *imageViewMask = [[UIImageView alloc] initWithImage:image];
-    imageViewMask.frame = CGRectInset(self.imgMessage.frame, 0, 0);
+    imageViewMask.frame = CGRectMake(0, 0, size.width, size.height);
 
     self.imgMessage.layer.mask = imageViewMask.layer;
-    self.imgBubble.layer.masksToBounds = YES;
 }
 
 #pragma mark - Getters And Setters

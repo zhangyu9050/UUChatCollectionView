@@ -39,7 +39,9 @@
     [self.timeStampView setContent:@""];
     _imgUserAvatar.image = nil;
 
-//    _imgBubble.image = nil;
+    _lblMessage.text = nil;
+    _imgMessage.image = nil;
+    _imgBubble.image = nil;
 }
 
 #pragma mark - life cycle
@@ -57,7 +59,7 @@
     [self.contentView addSubview:self.imgBubble];
     
     [_imgBubble addSubview:self.lblMessage];
-//    [_imgBubble addSubview:self.imgMessage];
+    [_imgBubble addSubview:self.imgMessage];
     
     
 //    self.contentView.layer.borderColor = [UIColor blueColor].CGColor;
@@ -175,8 +177,8 @@
         _imgMessage = [[UIImageView alloc] init];
         _imgMessage.contentMode = UIViewContentModeScaleAspectFill;
         
-        _imgMessage.layer.borderWidth = 2;
-        _imgMessage.layer.borderColor = [UIColor redColor].CGColor;
+//        _imgMessage.layer.borderWidth = 2;
+//        _imgMessage.layer.borderColor = [UIColor redColor].CGColor;
     }
     
     return _imgMessage;
