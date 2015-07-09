@@ -23,6 +23,8 @@
 
 @property (nonatomic, strong, getter = getLabelMessage) UILabel *lblMessage;
 @property (nonatomic, strong, getter = getImageMessage) UIImageView *imgMessage;
+@property (nonatomic, strong, getter = getLabelSoundTime) UILabel *lblSoundTime;
+@property (nonatomic, strong, getter = getImageSound) UIImageView *imgSound;
 
 @property (nonatomic, assign) BOOL didSetupConstraints;
 

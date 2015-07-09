@@ -91,6 +91,18 @@
             make.edges.equalTo(self.imgBubble).with.insets(UIEdgeInsetsZero);
         }];
         
+        [self.lblSoundTime mas_makeConstraints:^(MASConstraintMaker *make) {
+ 
+            make.edges.equalTo(self.imgBubble).with.insets(self.chatMessageIncomingInsets);
+        }];
+        
+        [self.imgSound mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.size.mas_equalTo(CGSizeMake(5, 20));
+            make.centerY.equalTo(self.imgBubble);
+            make.left.equalTo(self.imgBubble).offset(25);
+        }];
+        
         self.didSetupConstraints = YES;
     }
     
@@ -104,7 +116,14 @@
         make.top.equalTo(self.timeStampView.mas_bottom).offset(Offset == 0 ? 10 :20);
     }];
     
-
+    if (self.lblSoundTime.text.length > 0) {
+        
+        [self.lblSoundTime mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.width.mas_equalTo(@100);
+        }];
+        
+    }
     
     [super updateConstraints];
 }
@@ -134,6 +153,7 @@
     self.imgUserAvatar.image = [UIImage imageNamed:obj.userAvatar];
     
     self.imgMessage.hidden = self.lblMessage.hidden = YES;
+    self.imgSound.hidden = self.lblSoundTime.hidden = YES;
     
     UIImage *bubbleImage = [UUChatImageFactory bubbleImageIncoming];
     
@@ -153,6 +173,13 @@
         
         self.imgMessage.image = [UUChatImageFactory originImage:image scaleToSize:size];
         [self setImageMessageWithBubbleImage:bubbleImage imageSize:size];
+        
+    }else if (obj.messageType == kUUChatSound){
+    
+        self.imgSound.hidden = self.lblSoundTime.hidden = NO;
+        
+        self.lblSoundTime.text = @"12'";
+        self.imgSound .image = [UIImage imageNamed:@"wave3_b"];
     }
 }
 

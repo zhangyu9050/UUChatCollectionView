@@ -185,6 +185,10 @@
         [_messageArray addObject:[[UUChatMessage alloc] initWithSendImagePath:@""]];
         
         [self finishSendingMessage];
+    }else if (buttonIndex == 1){
+    
+        [_messageArray addObject:[[UUChatMessage alloc] initWithSendSoundPath:@""]];
+        [self finishSendingMessage];
     }
 }
 
@@ -215,7 +219,7 @@
                                                        delegate:self
                                               cancelButtonTitle:@"取消"
                                          destructiveButtonTitle:nil
-                                              otherButtonTitles:@"发送图片", nil];
+                                              otherButtonTitles:@"发送图片",@"发送语音", nil];
     
     [sheet showInView:self.view];
 }
@@ -346,8 +350,6 @@
     if (!_collectionView) {
         
         _messageArray = [[NSMutableArray alloc] init];
-        
-        [_messageArray addObject:[[UUChatMessage alloc] initWithSendImagePath:@""]];
 
         UUChatCollectionViewFlowLayout *flowLayout= [[UUChatCollectionViewFlowLayout alloc] init];
         

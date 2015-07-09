@@ -40,8 +40,12 @@
     _imgUserAvatar.image = nil;
 
     _lblMessage.text = nil;
+    
     _imgMessage.image = nil;
     _imgBubble.image = nil;
+    
+    _lblSoundTime.text = nil;
+    _imgSound.image = nil;
 }
 
 #pragma mark - life cycle
@@ -59,7 +63,11 @@
     [self.contentView addSubview:self.imgBubble];
     
     [_imgBubble addSubview:self.lblMessage];
+    
     [_imgBubble addSubview:self.imgMessage];
+    
+    [_imgBubble addSubview:self.lblSoundTime];
+    [_imgBubble addSubview:self.imgSound];
     
     
 //    self.contentView.layer.borderColor = [UIColor blueColor].CGColor;
@@ -190,6 +198,39 @@
     }
     
     return _imgMessage;
+}
+
+
+- (UIImageView *)getImageSound{
+    
+    if (!_imgSound) {
+        
+        _imgSound = [[UIImageView alloc] init];
+        _imgSound.contentMode = UIViewContentModeScaleAspectFill;
+        
+        //        _imgMessage.layer.borderWidth = 2;
+        //        _imgMessage.layer.borderColor = [UIColor redColor].CGColor;
+    }
+    
+    return _imgSound;
+}
+
+- (UILabel *)getLabelSoundTime{
+    
+    if (!_lblSoundTime) {
+        
+        _lblSoundTime = UILabel.new;
+        _lblSoundTime.numberOfLines = 0;
+        _lblSoundTime.textAlignment = NSTextAlignmentRight;
+        _lblSoundTime.textColor = COLOR_WITH_RGB(63,63,63,1);
+        _lblSoundTime.preferredMaxLayoutWidth = [UUChatCollectionViewCell maxBubboleWidth];
+        
+        //                _lblMessage.layer.borderWidth = 2;
+        //                _lblMessage.layer.borderColor = [UIColor greenColor].CGColor;
+        
+    }
+    
+    return _lblSoundTime;
 }
 
 @end

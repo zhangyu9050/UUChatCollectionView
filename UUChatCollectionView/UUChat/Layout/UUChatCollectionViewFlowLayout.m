@@ -171,6 +171,9 @@
         CGSize size = [UUChatImageFactory calcImageScaleSize:image.size maxWidth:200 maxHeight:200];
         finalSize.height += size.height;
 
+    }else if (messageItem.messageType == kUUChatSound){
+    
+        finalSize.height += 20;
     }
 
     
@@ -209,7 +212,7 @@
     
     layoutAttributes.messageBubbleInsets = UIEdgeInsetsZero;
     
-    if (messageItem.messageType == kUUChatMessage) {
+    if (messageItem.messageType == kUUChatMessage || messageItem.messageType == kUUChatSound) {
     
         layoutAttributes.messageFrameInsets = UIEdgeInsetsMake(10, 20, 10, 15);
         

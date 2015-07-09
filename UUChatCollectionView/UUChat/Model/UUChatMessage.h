@@ -44,4 +44,6 @@ typedef enum {
 
 - (instancetype)initWithSendImagePath:(NSString *)path;
 
+- (instancetype)initWithSendSoundPath:(NSString *)path;
+
 @end
