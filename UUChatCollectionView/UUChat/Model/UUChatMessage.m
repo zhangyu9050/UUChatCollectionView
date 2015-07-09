@@ -40,8 +40,25 @@
     }
     
     return self;
-
 }
+
+- (instancetype)initWithSendSoundPath:(NSString *)path{
+    
+    if (self = [super init]) {
+        
+        self.timestamp = [self sendTimeString];
+        self.userName = @"zhang";
+        self.userAvatar = @"userAvatarIncoming";
+        self.message = @"";
+        self.localPath = @"";
+        self.originalImagePath = @"";
+        self.messageType = kUUChatSound;
+    }
+    
+    return self;
+    
+}
+
 
 
 - (NSString *)sendTimeString{
