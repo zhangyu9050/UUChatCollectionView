@@ -10,7 +10,7 @@
 #import "Chat-Import.h"
 #import "Chat-Macros.h"
 
-@interface UUChatCollectionViewCellIncoming(){
+@interface UUChatCollectionViewCellIncoming() {
 
     CGFloat Offset;
     CALayer *_contentLayer;
